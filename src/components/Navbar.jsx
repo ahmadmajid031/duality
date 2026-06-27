@@ -41,10 +41,12 @@ function Navbar() {
 
   return (
     <div className="fixed top-4 sm:top-6 left-0 w-full z-50 flex justify-center px-4 sm:px-8">
-      <div ref={wrapperRef} className="relative">
+      <div ref={wrapperRef} className="relative w-full max-w-[420px] sm:w-auto sm:max-w-none">
         <div
-          className={`flex items-center gap-1.5 h-12 sm:h-[52px] pl-3 sm:pl-3.5 pr-2 py-2 rounded-xl shadow-[inset_0_0_0_1px_rgb(233,234,235),0px_1px_2px_0px_rgba(10,13,18,0.05)] transition-[padding,background-color,backdrop-filter] duration-[550ms] ease-[cubic-bezier(.7,0,.2,1)] ${
-            compact
+          className={`flex items-center gap-1.5 h-12 sm:h-[52px] pl-3 sm:pl-3.5 pr-2 py-2 shadow-[inset_0_0_0_1px_rgb(233,234,235),0px_1px_2px_0px_rgba(10,13,18,0.05)] transition-[padding,background-color,backdrop-filter] duration-[450ms] ease-[cubic-bezier(.7,0,.2,1)] ${
+            menuOpen ? 'rounded-t-xl rounded-b-none' : 'rounded-xl'
+          } ${
+            compact && !menuOpen
               ? 'bg-white/70 backdrop-blur-xl'
               : 'bg-white backdrop-blur-none'
           }`}
@@ -69,7 +71,7 @@ function Navbar() {
 
             <div
               className={`overflow-hidden whitespace-nowrap transition-[max-width,opacity,margin] duration-[550ms] ease-[cubic-bezier(.7,0,.2,1)] ${
-                compact
+                compact && !menuOpen
                   ? 'max-w-0 opacity-0 mx-0'
                   : 'max-w-[760px] opacity-100 mr-3'
               }`}
@@ -115,41 +117,63 @@ function Navbar() {
             type="button"
             aria-label="Toggle menu"
             onClick={() => setMenuOpen((o) => !o)}
-            className="md:hidden flex-none flex items-center justify-center w-9 h-9 rounded-[8px] text-[rgb(52,52,52)]"
+            className="md:hidden relative flex-none flex items-center justify-center w-9 h-9 rounded-[8px] text-[rgb(52,52,52)]"
           >
-            {menuOpen ? (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <path d="M6 6l12 12M18 6L6 18" />
-              </svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <path d="M4 7h16M4 12h16M4 17h16" />
-              </svg>
-            )}
+            <span
+              className={`absolute block h-[1.5px] w-[18px] bg-current rounded-full transition-transform duration-300 ease-[cubic-bezier(.6,0,.3,1)] ${
+                menuOpen ? 'rotate-45' : '-translate-y-[3.5px]'
+              }`}
+            />
+            <span
+              className={`absolute block h-[1.5px] w-[18px] bg-current rounded-full transition-transform duration-300 ease-[cubic-bezier(.6,0,.3,1)] ${
+                menuOpen ? '-rotate-45' : 'translate-y-[3.5px]'
+              }`}
+            />
           </button>
 
           <a
             href="#contact"
-            className="flex-none flex items-center justify-center h-9 px-4 rounded-[8px] bg-black shadow-[inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_0px_rgba(10,13,18,0.05),0px_1px_2px_0px_rgba(10,13,18,0.05)] no-underline text-sm font-semibold leading-6 text-white whitespace-nowrap transition-colors duration-200 hover:bg-neutral-800"
+            className="hidden md:flex flex-none items-center justify-center h-9 px-4 rounded-[8px] bg-black shadow-[inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_0px_rgba(10,13,18,0.05),0px_1px_2px_0px_rgba(10,13,18,0.05)] no-underline text-sm font-semibold leading-6 text-white whitespace-nowrap transition-colors duration-200 hover:bg-neutral-800"
           >
             Book a call
           </a>
         </div>
 
-        {menuOpen && (
-          <div className="md:hidden absolute left-0 right-0 top-full mt-2 rounded-xl bg-white shadow-[0px_8px_24px_0px_rgba(10,13,18,0.18),inset_0_0_0_1px_rgb(233,234,235)] p-2 flex flex-col gap-0.5 animate-[fadeIn_0.2s_ease_both]">
-            {navLinks.map((link) => (
+        <div
+          className={`md:hidden overflow-hidden bg-white rounded-b-xl shadow-[0px_8px_24px_0px_rgba(10,13,18,0.18),inset_0_0_0_1px_rgb(233,234,235)] transition-[max-height] duration-[400ms] ease-[cubic-bezier(.7,0,.2,1)] ${
+            menuOpen ? 'max-h-[360px]' : 'max-h-0'
+          }`}
+        >
+          <div className="p-2 flex flex-col gap-0.5">
+            {navLinks.map((link, i) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="px-3 py-2.5 rounded-lg text-sm font-semibold text-[rgb(83,88,98)] no-underline transition-colors duration-150 hover:bg-[rgb(247,247,248)] hover:text-[rgb(24,29,39)]"
+                className="px-3 py-2.5 rounded-lg text-sm font-semibold text-[rgb(83,88,98)] no-underline transition-[color,background-color,opacity,transform] duration-300 hover:bg-[rgb(247,247,248)] hover:text-[rgb(24,29,39)]"
+                style={{
+                  transitionDelay: menuOpen ? `${80 + i * 60}ms` : '0ms',
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
+                }}
               >
                 {link.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              onClick={() => setMenuOpen(false)}
+              className="mt-1 flex items-center justify-center h-10 rounded-lg bg-black no-underline text-sm font-semibold text-white transition-[opacity,transform] duration-300 hover:bg-neutral-800"
+              style={{
+                transitionDelay: menuOpen ? `${80 + navLinks.length * 60}ms` : '0ms',
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
+              }}
+            >
+              Book a call
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </div>
   )
