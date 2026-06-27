@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import CtaButton from './CtaButton'
 
 const handles = [
   { pos: 'top-[-12px] left-[-16px]', translate: '-translate-x-1/2 -translate-y-1/2' },
@@ -29,43 +30,6 @@ const clients = [
   'Brightline',
   'Faro',
 ]
-
-function CtaButton({ href, label, light }) {
-  return (
-    <a
-      href={href}
-      className={`group relative flex items-center justify-center h-11 sm:h-12 px-5 rounded-[10px] overflow-hidden no-underline w-full sm:w-auto shadow-[inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_0px_rgba(10,13,18,0.05),0px_1px_2px_0px_rgba(10,13,18,0.05)] ${
-        light ? 'bg-white' : 'bg-black'
-      }`}
-    >
-      <span
-        className={`block transition-transform duration-[420ms] ease-[cubic-bezier(.6,0,.15,1)] group-hover:-translate-y-[150%] font-sans font-semibold text-sm sm:text-base leading-6 whitespace-nowrap ${
-          light ? 'text-black' : 'text-white'
-        }`}
-      >
-        {label}
-      </span>
-      <span
-        className={`absolute inset-0 flex items-center justify-center translate-y-[150%] transition-transform duration-[420ms] ease-[cubic-bezier(.6,0,.15,1)] group-hover:translate-y-0 ${
-          light ? 'text-black' : 'text-white'
-        }`}
-      >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M7 17L17 7M17 7H8M17 7v9" />
-        </svg>
-      </span>
-    </a>
-  )
-}
 
 function Hero() {
   return (
@@ -121,8 +85,8 @@ function Hero() {
           className="flex flex-col sm:flex-row gap-2.5 items-center justify-center w-full max-w-[280px] sm:max-w-none animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
           style={{ animationDelay: '1.05s' }}
         >
-          <CtaButton href="#case-studies" label="View Case Studies" />
-          <CtaButton href="#contact" label="Book a call" light />
+          <CtaButton href="#case-studies" label="View Case Studies" fullWidthOnMobile />
+          <CtaButton href="#contact" label="Book a call" light fullWidthOnMobile />
         </div>
       </div>
 
