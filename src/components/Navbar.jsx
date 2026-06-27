@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const navLinks = [
   { label: 'About DualityUX', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
-  { label: 'Case Studies', href: '#case-studies' },
+  { label: 'Case Studies', href: '/use-cases' },
 ]
 
 function Navbar() {
@@ -90,8 +91,8 @@ function Navbar() {
                       {link.label}
                     </a>
                   ))}
-                  <a
-                    href="#case-studies"
+                  <Link
+                    to="/use-cases"
                     className="flex items-center gap-1 text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
                   >
                     Case Studies
@@ -107,7 +108,7 @@ function Navbar() {
                     >
                       <path d="M6 9l6 6 6-6" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -145,21 +146,36 @@ function Navbar() {
           }`}
         >
           <div className="p-2 flex flex-col gap-0.5">
-            {navLinks.map((link, i) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="px-3 py-2.5 rounded-lg text-sm font-semibold text-[rgb(83,88,98)] no-underline transition-[color,background-color,opacity,transform] duration-300 hover:bg-[rgb(247,247,248)] hover:text-[rgb(24,29,39)]"
-                style={{
-                  transitionDelay: menuOpen ? `${80 + i * 60}ms` : '0ms',
-                  opacity: menuOpen ? 1 : 0,
-                  transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link, i) => {
+              const itemClassName =
+                'px-3 py-2.5 rounded-lg text-sm font-semibold text-[rgb(83,88,98)] no-underline transition-[color,background-color,opacity,transform] duration-300 hover:bg-[rgb(247,247,248)] hover:text-[rgb(24,29,39)]'
+              const itemStyle = {
+                transitionDelay: menuOpen ? `${80 + i * 60}ms` : '0ms',
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
+              }
+              return link.href.startsWith('/') ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={itemClassName}
+                  style={itemStyle}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={itemClassName}
+                  style={itemStyle}
+                >
+                  {link.label}
+                </a>
+              )
+            })}
             <a
               href="#contact"
               onClick={() => setMenuOpen(false)}
