@@ -1,5 +1,4 @@
 import CtaButton from './CtaButton'
-import { useInView } from '../hooks/useInView'
 import footerLogo from '../assets/footer-logo.svg'
 
 const navLinks = [
@@ -18,24 +17,10 @@ const legalLinks = [
 ]
 
 function Footer() {
-  const [ref, isInView] = useInView({ threshold: 0.1 })
-
-  const reveal = isInView
-    ? 'opacity-100 translate-y-0'
-    : 'opacity-0 translate-y-8'
-
-  const delayStyle = (ms) => ({ transitionDelay: isInView ? `${ms}ms` : '0ms' })
-
   return (
-    <footer
-      ref={ref}
-      className="relative w-full bg-black overflow-hidden pt-16 sm:pt-20 lg:pt-24"
-    >
+    <footer className="relative w-full bg-black overflow-hidden pt-16 sm:pt-20 lg:pt-24">
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div
-          className={`transition-all duration-700 ease-out ${reveal}`}
-          style={delayStyle(0)}
-        >
+        <div>
           <h2 className="m-0 max-w-3xl font-display font-light text-[32px] leading-[40px] sm:text-[44px] sm:leading-[52px] lg:text-[52px] lg:leading-[60px]">
             <span className="text-white">
               Let&rsquo;s discuss the problem you want solved. Book a call or
@@ -47,10 +32,7 @@ function Footer() {
           </h2>
         </div>
 
-        <div
-          className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-10 sm:mt-12 transition-all duration-700 ease-out ${reveal}`}
-          style={delayStyle(150)}
-        >
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-10 sm:mt-12">
           <CtaButton href="#contact" label="Book a call now" light />
           <nav className="flex flex-wrap gap-x-8 gap-y-3">
             {navLinks.map((link) => (
@@ -65,10 +47,7 @@ function Footer() {
           </nav>
         </div>
 
-        <div
-          className={`mt-16 sm:mt-20 lg:mt-24 transition-all duration-700 ease-out ${reveal}`}
-          style={delayStyle(300)}
-        >
+        <div className="mt-16 sm:mt-20 lg:mt-24">
           <img
             src={footerLogo}
             alt="DualityUX"
