@@ -33,14 +33,14 @@ const clients = [
 
 function Hero() {
   return (
-    <section className="relative w-full min-h-[680px] sm:min-h-[760px] lg:min-h-[820px] h-screen overflow-hidden bg-[rgb(5,5,5)]">
+    <section className="relative w-full min-h-[560px] sm:min-h-[760px] lg:min-h-[820px] sm:h-screen overflow-hidden bg-[rgb(5,5,5)]">
       <div className="absolute left-[-4%] top-[62%] w-[54%] h-[42%] bg-[rgba(207,113,188,0.22)] blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute left-[36%] top-[52%] w-[62%] h-[42%] bg-[rgba(1,100,190,0.18)] blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute left-[28%] top-[74%] w-[72%] h-[34%] bg-[rgba(0,0,0,0.64)] blur-[80px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center pt-24 sm:pt-20 px-5 sm:px-6 gap-5 sm:gap-6">
-        <div className="relative inline-block max-w-[320px] sm:max-w-[460px] md:max-w-[560px] lg:max-w-[640px]">
-          <h1 className="m-0 text-center font-display font-light text-[32px] leading-[40px] sm:text-[40px] sm:leading-[48px] md:text-[48px] md:leading-[56px] lg:text-[56px] lg:leading-[68px] tracking-[0.02em] text-white">
+      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center pt-20 sm:pt-20 px-5 sm:px-6 gap-6 sm:gap-6">
+        <div className="relative inline-block max-w-[340px] sm:max-w-[460px] md:max-w-[560px] lg:max-w-[640px]">
+          <h1 className="m-0 text-center font-display font-light text-[38px] leading-[46px] sm:text-[40px] sm:leading-[48px] md:text-[48px] md:leading-[56px] lg:text-[56px] lg:leading-[68px] tracking-[0.02em] text-white">
             {headlineWords.map((word, i) => (
               <Fragment key={word + i}>
                 <span
@@ -74,7 +74,7 @@ function Hero() {
         </div>
 
         <p
-          className="m-0 max-w-[300px] sm:max-w-[460px] md:max-w-[560px] text-center font-display font-light text-base sm:text-lg leading-6 sm:leading-7 text-[rgb(238,238,238)] animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
+          className="m-0 max-w-[320px] sm:max-w-[460px] md:max-w-[560px] text-center font-display font-light text-[17px] leading-[26px] sm:text-lg sm:leading-7 text-[rgb(238,238,238)] animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
           style={{ animationDelay: '0.9s' }}
         >
           DualityUX is a design agency dedicated to crafting data-driven
