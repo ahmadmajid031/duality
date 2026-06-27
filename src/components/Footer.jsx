@@ -18,10 +18,10 @@ const legalLinks = [
 
 function Footer() {
   return (
-    <footer className="relative w-full bg-black overflow-hidden pt-16 sm:pt-20 lg:pt-24">
+    <footer className="relative w-full bg-black overflow-hidden pt-10 sm:pt-12 lg:pt-14">
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div>
-          <h2 className="m-0 max-w-3xl font-display font-light text-[32px] leading-[40px] sm:text-[44px] sm:leading-[52px] lg:text-[52px] lg:leading-[60px]">
+          <h2 className="m-0 max-w-3xl font-display font-light text-[24px] leading-[32px] sm:text-[30px] sm:leading-[38px] lg:text-[36px] lg:leading-[44px]">
             <span className="text-white">
               Let&rsquo;s discuss the problem you want solved. Book a call or
               send us a message.{' '}
@@ -32,9 +32,9 @@ function Footer() {
           </h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-10 sm:mt-12">
-          <CtaButton href="#contact" label="Book a call now" light />
-          <nav className="flex flex-wrap gap-x-8 gap-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mt-6 sm:mt-8">
+          <CtaButton href="#contact" label="Book a call now" light size="sm" />
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -47,15 +47,15 @@ function Footer() {
           </nav>
         </div>
 
-        <div className="mt-16 sm:mt-20 lg:mt-24">
+        <div className="mt-10 sm:mt-12 lg:mt-14">
           <img
             src={footerLogo}
             alt="DualityUX"
-            className="w-full max-w-[1100px] h-auto"
+            className="w-full max-w-[760px] h-auto"
           />
         </div>
 
-        <div className="border-t border-[rgb(38,38,38)] mt-10 sm:mt-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-[rgb(38,38,38)] mt-6 sm:mt-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="m-0 text-sm text-[rgb(140,140,140)]">
             © {new Date().getFullYear()} DualityUX. All rights reserved.
           </p>
