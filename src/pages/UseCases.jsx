@@ -1,37 +1,7 @@
+import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { useInView } from '../hooks/useInView'
-
-const tagColors = {
-  Design: 'bg-[rgba(127,86,217,0.16)] text-[rgb(177,151,242)]',
-  Research: 'bg-[rgba(67,97,238,0.18)] text-[rgb(150,170,250)]',
-  Presentation: 'bg-[rgba(219,39,119,0.18)] text-[rgb(244,151,196)]',
-  'Design Systems': 'bg-[rgba(124,58,237,0.18)] text-[rgb(196,168,250)]',
-  Engineering: 'bg-[rgba(2,132,199,0.18)] text-[rgb(146,206,250)]',
-  Product: 'bg-[rgba(5,150,105,0.18)] text-[rgb(134,224,189)]',
-}
-
-const cards = [
-  {
-    image:
-      'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=750&fit=crop&auto=format&q=80',
-    author: 'Olivia Rhye',
-    date: '20 Jan 2025',
-    title: 'UX review presentations',
-    description:
-      'How do you create compelling presentations that wow your colleagues and impress your managers?',
-    tags: ['Design', 'Research', 'Presentation'],
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&h=750&fit=crop&auto=format&q=80',
-    author: 'Phoenix Baker',
-    date: '15 Feb 2025',
-    title: 'Migrating to a new design system',
-    description:
-      'Switching your tech stack is a big decision—here is how we approach a seamless, low-risk migration.',
-    tags: ['Design Systems', 'Engineering', 'Product'],
-  },
-]
+import { useCases, tagColors } from '../data/useCases'
 
 const dotYPositions = ['0%', '50%', '100%']
 const dotXPositions = ['0%', '100%']
@@ -47,51 +17,56 @@ function ArrowUpRight() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="flex-none text-[rgb(170,170,170)]"
+      className="flex-none text-[rgb(170,170,170)] transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white"
     >
       <path d="M7 17L17 7M17 7H7M17 7V17" />
     </svg>
   )
 }
 
-function UseCaseCard({ card }) {
+function UseCaseCard({ useCase }) {
   return (
-    <div className="p-6 sm:p-8">
-      <img
-        src={card.image}
-        alt={card.title}
-        className="w-full aspect-[16/9] object-cover rounded-2xl"
-      />
+    <Link
+      to={`/use-cases/${useCase.slug}`}
+      className="group block p-6 sm:p-8 no-underline transition-colors duration-300 hover:bg-white/[0.03]"
+    >
+      <div className="overflow-hidden rounded-2xl">
+        <img
+          src={useCase.image}
+          alt={useCase.title}
+          className="w-full aspect-[16/9] object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        />
+      </div>
 
       <div className="mt-8">
-        <p className="m-0 text-sm font-semibold text-[rgb(170,170,170)]">
-          {card.author} <span className="text-[rgb(110,110,110)]">•</span>{' '}
-          {card.date}
+        <p className="m-0 font-display text-sm font-semibold text-[rgb(170,170,170)]">
+          {useCase.author} <span className="text-[rgb(110,110,110)]">•</span>{' '}
+          {useCase.date}
         </p>
 
         <div className="flex items-start justify-between gap-4 mt-2">
-          <h3 className="m-0 font-sans font-bold text-2xl text-white">
-            {card.title}
+          <h3 className="m-0 font-display font-semibold text-2xl text-white transition-colors duration-300 group-hover:text-[rgb(220,220,220)]">
+            {useCase.title}
           </h3>
           <ArrowUpRight />
         </div>
 
-        <p className="m-0 mt-2 text-base text-[rgb(170,170,170)] leading-relaxed">
-          {card.description}
+        <p className="m-0 mt-2 font-display text-base text-[rgb(170,170,170)] leading-relaxed">
+          {useCase.description}
         </p>
 
         <div className="flex flex-wrap gap-2 mt-4">
-          {card.tags.map((tag) => (
+          {useCase.tags.map((tag) => (
             <span
               key={tag}
-              className={`px-3 py-1 rounded-full text-xs font-medium ${tagColors[tag]}`}
+              className={`font-display px-3 py-1 rounded-full text-xs font-medium ${tagColors[tag]}`}
             >
               {tag}
             </span>
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
@@ -113,16 +88,15 @@ function UseCases() {
               className={`text-center max-w-2xl mx-auto mb-12 sm:mb-16 transition-all duration-700 ease-out ${reveal}`}
               style={delayStyle(0)}
             >
-              <p className="m-0 text-sm font-semibold text-[rgb(170,170,170)]">
-                Features
+              <p className="m-0 font-display text-sm font-semibold text-[rgb(170,170,170)]">
+                Case Studies
               </p>
               <h1 className="m-0 mt-3 font-display font-light text-[32px] leading-[40px] sm:text-[40px] sm:leading-[48px] text-white">
-                Beautiful analytics to grow smarter
+                Work that moves the metrics that matter
               </h1>
-              <p className="m-0 mt-4 text-base sm:text-lg text-[rgb(170,170,170)] leading-relaxed">
-                Powerful, self-serve product and growth analytics to help you
-                convert, engage, and retain more users. Trusted by over 4,000
-                startups.
+              <p className="m-0 mt-4 font-display text-base sm:text-lg text-[rgb(170,170,170)] leading-relaxed">
+                A look at how we partner with product and growth teams to
+                design data-driven experiences—from research through launch.
               </p>
             </div>
 
@@ -143,13 +117,13 @@ function UseCases() {
               </div>
 
               <div className="divide-y divide-[rgb(46,46,46)]">
-                {cards.map((card, i) => (
+                {useCases.map((useCase, i) => (
                   <div
-                    key={card.title}
+                    key={useCase.slug}
                     className={`transition-all duration-700 ease-out ${reveal}`}
                     style={delayStyle(250 + i * 150)}
                   >
-                    <UseCaseCard card={card} />
+                    <UseCaseCard useCase={useCase} />
                   </div>
                 ))}
               </div>
