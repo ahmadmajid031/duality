@@ -85,8 +85,8 @@ function Hero() {
           className="flex flex-col sm:flex-row gap-2.5 items-center justify-center w-full max-w-[280px] sm:max-w-none animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
           style={{ animationDelay: '1.05s' }}
         >
-          <CtaButton href="#case-studies" label="View Case Studies" fullWidthOnMobile />
-          <CtaButton href="#contact" label="Book a call" light fullWidthOnMobile />
+          <CtaButton href="/use-cases" label="View Case Studies" fullWidthOnMobile />
+          <CtaButton href="/contact" label="Book a call" light fullWidthOnMobile />
         </div>
       </div>
 

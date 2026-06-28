@@ -54,8 +54,8 @@ function TextPanel({ title, description }) {
         {description}
       </p>
       <div className="flex gap-2.5 mt-6">
-        <CtaButton href="#case-studies" label="View Case Studies" size="sm" />
-        <CtaButton href="#contact" label="Book a call" light size="sm" />
+        <CtaButton href="/use-cases" label="View Case Studies" size="sm" />
+        <CtaButton href="/contact" label="Book a call" light size="sm" />
       </div>
     </div>
   )

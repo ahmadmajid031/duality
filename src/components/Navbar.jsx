@@ -132,12 +132,12 @@ function Navbar() {
             />
           </button>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="hidden md:flex flex-none items-center justify-center h-9 px-4 rounded-[8px] bg-black shadow-[inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_0px_rgba(10,13,18,0.05),0px_1px_2px_0px_rgba(10,13,18,0.05)] no-underline text-sm font-semibold leading-6 text-white whitespace-nowrap transition-colors duration-200 hover:bg-neutral-800"
           >
             Book a call
-          </a>
+          </Link>
         </div>
 
         <div
@@ -176,8 +176,8 @@ function Navbar() {
                 </a>
               )
             })}
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setMenuOpen(false)}
               className="mt-1 flex items-center justify-center h-10 rounded-lg bg-black no-underline text-sm font-semibold text-white transition-[opacity,transform] duration-300 hover:bg-neutral-800"
               style={{
@@ -187,7 +187,7 @@ function Navbar() {
               }}
             >
               Book a call
-            </a>
+            </Link>
           </div>
         </div>
       </div>
