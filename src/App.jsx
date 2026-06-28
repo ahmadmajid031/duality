@@ -4,6 +4,7 @@ import Landing from './pages/Landing'
 import UseCases from './pages/UseCases'
 import UseCasePost from './pages/UseCasePost'
 import Contact from './pages/Contact'
+import About from './pages/About'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/use-cases" element={<UseCases />} />
         <Route path="/use-cases/:slug" element={<UseCasePost />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </>
   )

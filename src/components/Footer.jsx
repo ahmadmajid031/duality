@@ -59,11 +59,9 @@ function Footer() {
         </div>
 
         <div className="mt-10 sm:mt-12 lg:mt-14">
-          <img
-            src={footerLogo}
-            alt="DualityUX"
-            className="w-full max-w-[760px] h-auto"
-          />
+          <Link to="/" className="block w-full max-w-[760px]">
+            <img src={footerLogo} alt="DualityUX" className="w-full h-auto" />
+          </Link>
         </div>
 
         <div className="border-t border-[rgb(38,38,38)] mt-6 sm:mt-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">

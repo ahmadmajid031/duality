@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const navLinks = [
-  { label: 'About DualityUX', href: '#about' },
+  { label: 'About DualityUX', href: '/about' },
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'Case Studies', href: '/use-cases' },
@@ -53,7 +53,7 @@ function Navbar() {
           }`}
         >
           <div className="flex-none flex items-center gap-2">
-            <div className="w-6 h-6 flex items-center justify-center">
+            <Link to="/" className="w-6 h-6 flex items-center justify-center">
               <svg
                 width="25.6"
                 height="22.1"
@@ -68,7 +68,7 @@ function Navbar() {
                   />
                 </g>
               </svg>
-            </div>
+            </Link>
 
             <div
               className={`overflow-hidden whitespace-nowrap transition-[max-width,opacity,margin] duration-[550ms] ease-[cubic-bezier(.7,0,.2,1)] ${
@@ -78,19 +78,32 @@ function Navbar() {
               }`}
             >
               <div className="flex items-center gap-5">
-                <span className="flex-none flex items-center h-6 font-coolvetica text-xl leading-none text-[rgb(52,52,52)]">
+                <Link
+                  to="/"
+                  className="flex-none flex items-center h-6 font-coolvetica text-xl leading-none text-[rgb(52,52,52)] no-underline"
+                >
                   DualityUX
-                </span>
+                </Link>
                 <div className="hidden md:flex items-center gap-4 flex-none">
-                  {navLinks.slice(0, 3).map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      className="text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
+                  {navLinks.slice(0, 3).map((link) =>
+                    link.href.startsWith('/') ? (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        className="text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        className="text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
+                      >
+                        {link.label}
+                      </a>
+                    )
+                  )}
                   <Link
                     to="/use-cases"
                     className="flex items-center gap-1 text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
@@ -136,7 +149,7 @@ function Navbar() {
             to="/contact"
             className="hidden md:flex flex-none items-center justify-center h-9 px-4 rounded-[8px] bg-black shadow-[inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_0px_rgba(10,13,18,0.05),0px_1px_2px_0px_rgba(10,13,18,0.05)] no-underline text-sm font-semibold leading-6 text-white whitespace-nowrap transition-colors duration-200 hover:bg-neutral-800"
           >
-            Book a call
+            Let&rsquo;s Talk
           </Link>
         </div>
 
@@ -186,7 +199,7 @@ function Navbar() {
                 transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
               }}
             >
-              Book a call
+              Let&rsquo;s Talk
             </Link>
           </div>
         </div>

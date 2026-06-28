@@ -103,7 +103,7 @@ function Hero() {
             {[...clients, ...clients].map((name, i) => (
               <span
                 key={name + i}
-                className="flex-none h-8 sm:h-10 flex items-center font-sans font-semibold text-sm sm:text-base text-white/70 whitespace-nowrap"
+                className="flex-none h-8 sm:h-10 flex items-center font-display font-semibold text-sm sm:text-base text-white/70 whitespace-nowrap"
               >
                 {name}
               </span>

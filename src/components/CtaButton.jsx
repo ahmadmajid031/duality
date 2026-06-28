@@ -19,7 +19,7 @@ function CtaButton({ href, label, light, size = 'md', fullWidthOnMobile = false 
       }`}
     >
       <span
-        className={`block transition-transform duration-[420ms] ease-[cubic-bezier(.6,0,.15,1)] group-hover:-translate-y-[150%] font-sans font-semibold leading-6 whitespace-nowrap ${
+        className={`block transition-transform duration-[420ms] ease-[cubic-bezier(.6,0,.15,1)] group-hover:-translate-y-[150%] font-display font-semibold leading-6 whitespace-nowrap ${
           light ? 'text-black' : 'text-white'
         }`}
       >
