@@ -19,7 +19,7 @@ function NotFound() {
       </p>
       <Link
         to="/use-cases"
-        className="font-display text-sm font-semibold text-white no-underline hover:text-[rgb(180,180,180)] transition-colors"
+        className="font-display text-sm font-medium text-white no-underline hover:text-[rgb(180,180,180)] transition-colors"
       >
         ← Back to case studies
       </Link>
@@ -128,7 +128,7 @@ function UseCasePost() {
             </div>
 
             <div
-              className="flex items-center justify-center gap-2 mt-7 font-display text-sm font-semibold text-[rgb(170,170,170)] animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
+              className="flex items-center justify-center gap-2 mt-7 font-display text-sm font-medium text-[rgb(170,170,170)] animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
               style={{ animationDelay: '0.12s' }}
             >
               <span>{useCase.author}</span>

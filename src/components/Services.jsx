@@ -80,7 +80,7 @@ function Services() {
           className={`text-center max-w-2xl mx-auto mb-12 sm:mb-16 transition-all duration-700 ease-out ${reveal}`}
           style={delayStyle(0)}
         >
-          <p className="m-0 text-sm font-semibold text-[rgb(170,170,170)]">
+          <p className="m-0 text-sm font-medium text-[rgb(170,170,170)]">
             Services
           </p>
           <h2 className="m-0 mt-3 font-display font-light text-[32px] leading-[40px] sm:text-[40px] sm:leading-[48px] text-white">

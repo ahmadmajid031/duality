@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 const navLinks = [
   { label: 'About DualityUX', href: '/about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
+  { label: 'Services', href: '/services' },
   { label: 'Case Studies', href: '/use-cases' },
 ]
 
@@ -85,43 +84,15 @@ function Navbar() {
                   DualityUX
                 </Link>
                 <div className="hidden md:flex items-center gap-4 flex-none">
-                  {navLinks.slice(0, 3).map((link) =>
-                    link.href.startsWith('/') ? (
-                      <Link
-                        key={link.label}
-                        to={link.href}
-                        className="text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a
-                        key={link.label}
-                        href={link.href}
-                        className="text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
-                      >
-                        {link.label}
-                      </a>
-                    )
-                  )}
-                  <Link
-                    to="/use-cases"
-                    className="flex items-center gap-1 text-sm font-semibold leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
-                  >
-                    Case Studies
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      to={link.href}
+                      className="text-sm font-medium leading-6 text-[rgb(83,88,98)] no-underline transition-colors duration-200 hover:text-[rgb(24,29,39)]"
                     >
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </Link>
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
@@ -147,7 +118,7 @@ function Navbar() {
 
           <Link
             to="/contact"
-            className="hidden md:flex flex-none items-center justify-center h-9 px-4 rounded-[8px] bg-black shadow-[inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_0px_rgba(10,13,18,0.05),0px_1px_2px_0px_rgba(10,13,18,0.05)] no-underline text-sm font-semibold leading-6 text-white whitespace-nowrap transition-colors duration-200 hover:bg-neutral-800"
+            className="hidden md:flex flex-none items-center justify-center h-9 px-4 rounded-[8px] bg-black shadow-[inset_0px_0px_0px_1px_rgba(10,13,18,0.18),inset_0px_-2px_0px_0px_rgba(10,13,18,0.05),0px_1px_2px_0px_rgba(10,13,18,0.05)] no-underline text-sm font-medium leading-6 text-white whitespace-nowrap transition-colors duration-200 hover:bg-neutral-800"
           >
             Let&rsquo;s Talk
           </Link>
@@ -161,13 +132,13 @@ function Navbar() {
           <div className="p-2 flex flex-col gap-0.5">
             {navLinks.map((link, i) => {
               const itemClassName =
-                'px-3 py-2.5 rounded-lg text-sm font-semibold text-[rgb(83,88,98)] no-underline transition-[color,background-color,opacity,transform] duration-300 hover:bg-[rgb(247,247,248)] hover:text-[rgb(24,29,39)]'
+                'px-3 py-2.5 rounded-lg text-sm font-medium text-[rgb(83,88,98)] no-underline transition-[color,background-color,opacity,transform] duration-300 hover:bg-[rgb(247,247,248)] hover:text-[rgb(24,29,39)]'
               const itemStyle = {
                 transitionDelay: menuOpen ? `${80 + i * 60}ms` : '0ms',
                 opacity: menuOpen ? 1 : 0,
                 transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
               }
-              return link.href.startsWith('/') ? (
+              return (
                 <Link
                   key={link.label}
                   to={link.href}
@@ -177,22 +148,12 @@ function Navbar() {
                 >
                   {link.label}
                 </Link>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={itemClassName}
-                  style={itemStyle}
-                >
-                  {link.label}
-                </a>
               )
             })}
             <Link
               to="/contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-1 flex items-center justify-center h-10 rounded-lg bg-black no-underline text-sm font-semibold text-white transition-[opacity,transform] duration-300 hover:bg-neutral-800"
+              className="mt-1 flex items-center justify-center h-10 rounded-lg bg-black no-underline text-sm font-medium text-white transition-[opacity,transform] duration-300 hover:bg-neutral-800"
               style={{
                 transitionDelay: menuOpen ? `${80 + navLinks.length * 60}ms` : '0ms',
                 opacity: menuOpen ? 1 : 0,

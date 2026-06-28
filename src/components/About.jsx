@@ -29,7 +29,7 @@ function About() {
 
         <div className="mt-10 sm:mt-12 lg:mt-14 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-12">
           <div className="max-w-2xl">
-            <p className={`m-0 text-sm font-semibold text-[rgb(170,170,170)] ${reveal(150)}`} style={delayStyle(150)}>
+            <p className={`m-0 text-sm font-medium text-[rgb(170,170,170)] ${reveal(150)}`} style={delayStyle(150)}>
               Nice to meet you
             </p>
             <h2

@@ -3,12 +3,10 @@ import CtaButton from './CtaButton'
 import footerLogo from '../assets/footer-logo.svg'
 
 const navLinks = [
-  { label: 'Overview', href: '#' },
-  { label: 'Services', href: '#services' },
-  { label: 'Case Studies', href: '#case-studies' },
-  { label: 'Careers', href: '#' },
+  { label: 'About DualityUX', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Case Studies', href: '/use-cases' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Privacy', href: '#' },
 ]
 
 const legalLinks = [
@@ -36,25 +34,15 @@ function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mt-6 sm:mt-8">
           <CtaButton href="/contact" label="Book a call now" light size="sm" />
           <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {navLinks.map((link) =>
-              link.href.startsWith('/') ? (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className="text-sm font-semibold text-white no-underline hover:text-[rgb(180,180,180)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm font-semibold text-white no-underline hover:text-[rgb(180,180,180)] transition-colors"
-                >
-                  {link.label}
-                </a>
-              )
-            )}
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-sm font-medium text-white no-underline hover:text-[rgb(180,180,180)] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
 

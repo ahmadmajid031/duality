@@ -101,7 +101,7 @@ function VerifiedBadge() {
 function TestimonialCard({ testimonial }) {
   return (
     <div className="rounded-2xl border border-[rgb(38,38,38)] p-6 sm:p-7">
-      <p className="m-0 text-base font-bold text-white">{testimonial.company}</p>
+      <p className="m-0 text-base font-medium text-white">{testimonial.company}</p>
       <p className="m-0 mt-4 text-[15px] leading-relaxed text-[rgb(180,180,180)]">
         {testimonial.quote}
       </p>
@@ -112,7 +112,7 @@ function TestimonialCard({ testimonial }) {
           className="w-10 h-10 rounded-full object-cover flex-none"
         />
         <div>
-          <p className="m-0 flex items-center gap-1.5 text-sm font-semibold text-white">
+          <p className="m-0 flex items-center gap-1.5 text-sm font-medium text-white">
             {testimonial.name}
             <VerifiedBadge />
           </p>
@@ -184,7 +184,7 @@ function Testimonials() {
           className={`text-center max-w-2xl mx-auto mb-12 sm:mb-16 transition-all duration-700 ease-out ${reveal}`}
           style={delayStyle(0)}
         >
-          <h2 className="m-0 text-[32px] sm:text-[40px] font-bold text-white">
+          <h2 className="m-0 text-[32px] sm:text-[40px] font-medium text-white">
             Our reviews
           </h2>
           <p className="m-0 mt-4 text-base sm:text-lg text-[rgb(170,170,170)]">

@@ -39,13 +39,13 @@ function UseCaseCard({ useCase }) {
       </div>
 
       <div className="mt-8">
-        <p className="m-0 font-display text-sm font-semibold text-[rgb(170,170,170)]">
+        <p className="m-0 font-display text-sm font-medium text-[rgb(170,170,170)]">
           {useCase.author} <span className="text-[rgb(110,110,110)]">•</span>{' '}
           {useCase.date}
         </p>
 
         <div className="flex items-start justify-between gap-4 mt-2">
-          <h3 className="m-0 font-display font-semibold text-2xl text-white transition-colors duration-300 group-hover:text-[rgb(220,220,220)]">
+          <h3 className="m-0 font-display font-medium text-2xl text-white transition-colors duration-300 group-hover:text-[rgb(220,220,220)]">
             {useCase.title}
           </h3>
           <ArrowUpRight />
@@ -88,7 +88,7 @@ function UseCases() {
               className={`text-center max-w-2xl mx-auto mb-12 sm:mb-16 transition-all duration-700 ease-out ${reveal}`}
               style={delayStyle(0)}
             >
-              <p className="m-0 font-display text-sm font-semibold text-[rgb(170,170,170)]">
+              <p className="m-0 font-display text-sm font-medium text-[rgb(170,170,170)]">
                 Case Studies
               </p>
               <h1 className="m-0 mt-3 font-display font-light text-[32px] leading-[40px] sm:text-[40px] sm:leading-[48px] text-white">

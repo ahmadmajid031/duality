@@ -54,7 +54,7 @@ function Checkbox({ checked, onChange, label, htmlFor }) {
 function Field({ label, required, children }) {
   return (
     <div>
-      <label className="block font-display text-sm font-semibold text-white mb-2.5">
+      <label className="block font-display text-sm font-medium text-white mb-2.5">
         {label}
         {required && <span className="text-[rgb(140,140,140)]"> *</span>}
       </label>
@@ -177,7 +177,7 @@ function Contact() {
                     </Field>
 
                     <div>
-                      <label className="block font-display text-sm font-semibold text-white mb-3">
+                      <label className="block font-display text-sm font-medium text-white mb-3">
                         What services are you interested in?
                         <span className="text-[rgb(140,140,140)]"> *</span>
                       </label>
@@ -255,7 +255,7 @@ function Contact() {
 
                     <button
                       type="submit"
-                      className="h-12 rounded-lg bg-white font-display text-sm font-semibold text-black hover:bg-[rgb(230,230,230)] transition-colors"
+                      className="h-12 rounded-lg bg-white font-display text-sm font-medium text-black hover:bg-[rgb(230,230,230)] transition-colors"
                     >
                       Send message
                     </button>

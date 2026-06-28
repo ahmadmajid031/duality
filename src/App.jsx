@@ -5,6 +5,7 @@ import UseCases from './pages/UseCases'
 import UseCasePost from './pages/UseCasePost'
 import Contact from './pages/Contact'
 import About from './pages/About'
+import Services from './pages/Services'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/use-cases/:slug" element={<UseCasePost />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
     </>
   )
