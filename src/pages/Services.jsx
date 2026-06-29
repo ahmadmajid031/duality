@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import CtaButton from '../components/CtaButton'
 import Footer from '../components/Footer'
+import { useInView } from '../hooks/useInView'
 
 const services = [
   {
@@ -79,6 +80,15 @@ const services = [
   },
 ]
 
+const dotPositions = [
+  { top: '0%', left: '0%' },
+  { top: '0%', left: '100%' },
+  { top: '100%', left: '0%' },
+  { top: '100%', left: '100%' },
+]
+
+const ACCORDION_PANEL_HEIGHT = 96
+
 function AccordionItem({ item, isOpen, onToggle }) {
   return (
     <div className="border-b border-[rgb(46,46,46)]">
@@ -99,9 +109,8 @@ function AccordionItem({ item, isOpen, onToggle }) {
         </span>
       </button>
       <div
-        className={`overflow-hidden transition-[max-height] duration-300 ease-out ${
-          isOpen ? 'max-h-32' : 'max-h-0'
-        }`}
+        className="overflow-hidden transition-[height] duration-300 ease-out"
+        style={{ height: isOpen ? `${ACCORDION_PANEL_HEIGHT}px` : '0px' }}
       >
         <p className="m-0 pb-5 max-w-md font-display text-base text-[rgb(170,170,170)] leading-relaxed">
           {item.description}
@@ -113,45 +122,65 @@ function AccordionItem({ item, isOpen, onToggle }) {
 
 function ServiceBlock({ service, reverse }) {
   const [openIndex, setOpenIndex] = useState(0)
+  const [ref, isInView] = useInView({ threshold: 0.1 })
+
+  const reveal = isInView
+    ? 'opacity-100 translate-y-0'
+    : 'opacity-0 translate-y-8'
 
   return (
-    <section className="relative w-full overflow-hidden py-16 sm:py-20 lg:py-24">
+    <section
+      ref={ref}
+      className="relative w-full overflow-hidden py-16 sm:py-20 lg:py-24"
+    >
       <div
         className="absolute top-[10%] w-[55%] h-[60%] blur-[140px] rounded-full pointer-events-none"
         style={{ background: service.glow, [reverse ? 'right' : 'left']: '0%' }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className={reverse ? 'lg:order-2' : ''}>
-            <h2 className="m-0 font-display font-light text-[36px] leading-[44px] sm:text-[48px] sm:leading-[56px] text-white">
-              {service.title}
-            </h2>
-            <p className="m-0 mt-4 max-w-md font-display text-base sm:text-lg text-[rgb(170,170,170)] leading-relaxed">
-              {service.subtitle}
-            </p>
-            <div className="mt-7">
-              <CtaButton href="/contact" label="Book a call" light />
-            </div>
-
-            <div className="mt-14 sm:mt-16 border-t border-[rgb(46,46,46)]">
-              {service.items.map((item, i) => (
-                <AccordionItem
-                  key={item.title}
-                  item={item}
-                  isOpen={openIndex === i}
-                  onToggle={() => setOpenIndex(i)}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className={reverse ? 'lg:order-1' : ''}>
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-[420px] sm:h-[520px] lg:h-[620px] object-cover rounded-2xl"
+        <div
+          className={`relative border border-[rgb(46,46,46)] p-8 sm:p-12 lg:p-14 transition-all duration-700 ease-out ${reveal}`}
+        >
+          {dotPositions.map((pos, i) => (
+            <div
+              key={i}
+              className="absolute w-1.5 h-1.5 rounded-full bg-white -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              style={pos}
             />
+          ))}
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div className={reverse ? 'lg:order-2' : ''}>
+              <h2 className="m-0 font-display font-light text-[36px] leading-[44px] sm:text-[48px] sm:leading-[56px] text-white">
+                {service.title}
+              </h2>
+              <p className="m-0 mt-4 max-w-md font-display text-base sm:text-lg text-[rgb(170,170,170)] leading-relaxed">
+                {service.subtitle}
+              </p>
+              <div className="mt-7">
+                <CtaButton href="/contact" label="Book a call" light />
+              </div>
+
+              <div className="mt-14 sm:mt-16 border-t border-[rgb(46,46,46)]">
+                {service.items.map((item, i) => (
+                  <AccordionItem
+                    key={item.title}
+                    item={item}
+                    isOpen={openIndex === i}
+                    onToggle={() => setOpenIndex(i)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className={reverse ? 'lg:order-1' : ''}>
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-[420px] sm:h-[520px] lg:h-[620px] object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -160,11 +189,18 @@ function ServiceBlock({ service, reverse }) {
 }
 
 function Services() {
+  const [headerRef, headerInView] = useInView({ threshold: 0.1 })
+  const headerReveal = headerInView
+    ? 'opacity-100 translate-y-0'
+    : 'opacity-0 translate-y-8'
+
   return (
     <>
       <div className="relative z-10 bg-[rgb(5,5,5)]">
-        <div className="pt-32 sm:pt-40 pb-4">
-          <div className="max-w-2xl mx-auto px-6 sm:px-8 text-center">
+        <div ref={headerRef} className="pt-32 sm:pt-40 pb-4">
+          <div
+            className={`max-w-2xl mx-auto px-6 sm:px-8 text-center transition-all duration-700 ease-out ${headerReveal}`}
+          >
             <p className="m-0 font-display text-sm font-medium text-[rgb(170,170,170)]">
               Services
             </p>
