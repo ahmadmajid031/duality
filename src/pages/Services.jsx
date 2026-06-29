@@ -217,7 +217,7 @@ function Services() {
         </div>
       </div>
 
-      <div className="sticky bottom-0 z-0" style={{ top: '100vh' }}>
+      <div className="sticky bottom-0 z-0" style={{ top: '100dvh' }}>
         <Footer />
       </div>
     </>

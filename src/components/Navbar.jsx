@@ -10,6 +10,7 @@ const navLinks = [
 function Navbar() {
   const [compact, setCompact] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [pillSquare, setPillSquare] = useState(false)
   const wrapperRef = useRef(null)
 
   useEffect(() => {
@@ -29,6 +30,15 @@ function Navbar() {
   }, [])
 
   useEffect(() => {
+    if (menuOpen) {
+      setPillSquare(true)
+      return
+    }
+    const t = setTimeout(() => setPillSquare(false), 400)
+    return () => clearTimeout(t)
+  }, [menuOpen])
+
+  useEffect(() => {
     if (!menuOpen) return
     const onClickOutside = (e) => {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
@@ -44,7 +54,7 @@ function Navbar() {
       <div ref={wrapperRef} className="relative w-full max-w-[420px] sm:w-auto sm:max-w-none">
         <div
           className={`flex items-center gap-1.5 h-12 sm:h-[52px] pl-3 sm:pl-3.5 pr-2 py-2 shadow-[inset_0_0_0_1px_rgb(233,234,235),0px_1px_2px_0px_rgba(10,13,18,0.05)] transition-[padding,background-color,backdrop-filter] duration-[450ms] ease-[cubic-bezier(.7,0,.2,1)] ${
-            menuOpen ? 'rounded-t-xl rounded-b-none' : 'rounded-xl'
+            pillSquare ? 'rounded-t-xl rounded-b-none' : 'rounded-xl'
           } ${
             compact && !menuOpen
               ? 'bg-white/70 backdrop-blur-xl'
@@ -102,7 +112,7 @@ function Navbar() {
             type="button"
             aria-label="Toggle menu"
             onClick={() => setMenuOpen((o) => !o)}
-            className="md:hidden relative flex-none flex items-center justify-center w-9 h-9 rounded-[8px] text-[rgb(52,52,52)]"
+            className="md:hidden relative flex-none flex items-center justify-center w-9 h-9 ml-auto rounded-[8px] text-[rgb(52,52,52)]"
           >
             <span
               className={`absolute block h-[1.5px] w-[18px] bg-current rounded-full transition-transform duration-300 ease-[cubic-bezier(.6,0,.3,1)] ${
