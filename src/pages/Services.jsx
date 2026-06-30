@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CtaButton from '../components/CtaButton'
 import Footer from '../components/Footer'
 import { useInView } from '../hooks/useInView'
+import service01 from '../assets/service-01.jpg'
 import service02 from '../assets/service-02.jpg'
 
 const services = [
@@ -9,8 +10,7 @@ const services = [
     title: 'Product Design',
     subtitle:
       'We help teams turn complex requirements into products people enjoy using.',
-    image:
-      'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=1400&fit=crop&auto=format&q=80',
+    image: service01,
     items: [
       {
         title: 'User-centered interfaces',

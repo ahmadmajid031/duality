@@ -1,6 +1,7 @@
 import CtaButton from './CtaButton'
 import { useInView } from '../hooks/useInView'
 import feature01 from '../assets/feature-01.jpg'
+import feature02 from '../assets/feature-02.jpg'
 
 const rows = [
   {
@@ -15,7 +16,7 @@ const rows = [
     description:
       'We build flexible, reusable design systems that scale with your product. Consistent components mean faster shipping without sacrificing quality.',
     reverse: true,
-    glow: 'top-left-strong',
+    glow: 'feature-02',
   },
   {
     title: 'Prototyping & Testing',
@@ -42,11 +43,20 @@ function GlowPanel({ variant }) {
     )
   }
 
+  if (variant === 'feature-02') {
+    return (
+      <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-black overflow-hidden">
+        <img
+          src={feature02}
+          alt="Design systems and UI work"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-black overflow-hidden">
-      {variant === 'top-left-strong' && (
-        <div className="absolute -top-[25%] -left-[20%] w-[95%] h-[95%] bg-[rgba(127,86,217,0.5)] blur-[110px] rounded-full pointer-events-none" />
-      )}
       {variant === 'bottom-right-teal' && (
         <div className="absolute -bottom-[20%] -right-[15%] w-[65%] h-[65%] bg-[rgba(1,150,190,0.32)] blur-[100px] rounded-full pointer-events-none" />
       )}
