@@ -71,6 +71,22 @@ function ImageBlock({ block }) {
   )
 }
 
+function QuoteBlock({ block }) {
+  const [ref, isInView] = useInView({ threshold: 0.15 })
+  return (
+    <div
+      ref={ref}
+      className={`pl-6 border-l-2 border-white/20 transition-all duration-700 ease-out ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      <p className="m-0 font-display font-light text-xl sm:text-2xl text-white leading-relaxed">
+        &ldquo;{block.text}&rdquo;
+      </p>
+    </div>
+  )
+}
+
 function ImageGridBlock({ block }) {
   const [ref, isInView] = useInView({ threshold: 0.15 })
   return (
@@ -165,6 +181,7 @@ function UseCasePost() {
 
         <div className="max-w-3xl mx-auto px-6 sm:px-8 py-16 sm:py-20 flex flex-col gap-6">
           {useCase.blocks.map((block, i) => {
+            if (block.type === 'quote') return <QuoteBlock key={i} block={block} />
             if (block.type === 'text') return <TextBlock key={i} block={block} />
             if (block.type === 'image') return <ImageBlock key={i} block={block} />
             if (block.type === 'image-grid')
