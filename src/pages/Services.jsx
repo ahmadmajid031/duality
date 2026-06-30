@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CtaButton from '../components/CtaButton'
 import Footer from '../components/Footer'
 import { useInView } from '../hooks/useInView'
+import service02 from '../assets/service-02.jpg'
 
 const services = [
   {
@@ -10,7 +11,6 @@ const services = [
       'We help teams turn complex requirements into products people enjoy using.',
     image:
       'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=1400&fit=crop&auto=format&q=80',
-    glow: 'rgba(127,86,217,0.32)',
     items: [
       {
         title: 'User-centered interfaces',
@@ -32,9 +32,7 @@ const services = [
   {
     title: 'Website Design and Development',
     subtitle: 'We help our clients reach their website designs.',
-    image:
-      'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1200&h=1400&fit=crop&auto=format&q=80',
-    glow: 'rgba(1,100,190,0.3)',
+    image: service02,
     items: [
       {
         title: 'Responsive, pixel-perfect builds',
@@ -59,7 +57,6 @@ const services = [
       'We uncover what your users actually need, not just what they ask for.',
     image:
       'https://images.unsplash.com/photo-1552581234-26160f608093?w=1200&h=1400&fit=crop&auto=format&q=80',
-    glow: 'rgba(1,150,190,0.3)',
     items: [
       {
         title: 'User interviews & usability testing',
@@ -129,15 +126,7 @@ function ServiceBlock({ service, reverse }) {
     : 'opacity-0 translate-y-8'
 
   return (
-    <section
-      ref={ref}
-      className="relative w-full overflow-hidden py-16 sm:py-20 lg:py-24"
-    >
-      <div
-        className="absolute top-[10%] w-[55%] h-[60%] blur-[140px] rounded-full pointer-events-none"
-        style={{ background: service.glow, [reverse ? 'right' : 'left']: '0%' }}
-      />
-
+    <section ref={ref} className="relative w-full py-16 sm:py-20 lg:py-24">
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div
           className={`relative border border-[rgb(46,46,46)] p-8 sm:p-12 lg:p-14 transition-all duration-700 ease-out ${reveal}`}

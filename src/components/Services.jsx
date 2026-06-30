@@ -1,5 +1,6 @@
 import CtaButton from './CtaButton'
 import { useInView } from '../hooks/useInView'
+import feature01 from '../assets/feature-01.jpg'
 
 const rows = [
   {
@@ -29,11 +30,20 @@ const dotYPositions = ['0%', '33.3333%', '66.6667%', '100%']
 const dotXPositions = ['0%', '100%']
 
 function GlowPanel({ variant }) {
+  if (variant === 'top-right') {
+    return (
+      <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-black overflow-hidden">
+        <img
+          src={feature01}
+          alt="Tools and integrations we work with"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-black overflow-hidden">
-      {variant === 'top-right' && (
-        <div className="absolute -top-[20%] -right-[15%] w-[70%] h-[70%] bg-[rgba(127,86,217,0.28)] blur-[100px] rounded-full pointer-events-none" />
-      )}
       {variant === 'top-left-strong' && (
         <div className="absolute -top-[25%] -left-[20%] w-[95%] h-[95%] bg-[rgba(127,86,217,0.5)] blur-[110px] rounded-full pointer-events-none" />
       )}
