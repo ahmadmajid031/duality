@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { getCalApi } from '@calcom/embed-react'
+import { useState } from 'react'
 import Footer from '../components/Footer'
 
 const services = [
@@ -72,12 +71,12 @@ function Contact() {
   const [agreed, setAgreed] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  useEffect(() => {
-    ;(async function () {
-      const cal = await getCalApi({ namespace: '30min' })
-      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' })
-    })()
-  }, [])
+  function openCal() {
+    window.Cal?.ns?.['30min']?.('modal', {
+      calLink: 'dualityux/30min',
+      config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
+    })
+  }
 
 const toggleService = (service) => {
     setSelectedServices((prev) =>
@@ -116,9 +115,7 @@ const toggleService = (service) => {
                 Interested in talking us through your problem?{' '}
                 <button
                   type="button"
-                  data-cal-namespace="30min"
-                  data-cal-link="dualityux/30min"
-                  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                  onClick={openCal}
                   className="font-display text-base sm:text-lg text-white underline hover:text-[rgb(200,200,200)] transition-colors cursor-pointer bg-transparent border-0 p-0"
                 >
                   Book a call
