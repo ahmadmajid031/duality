@@ -1,3 +1,5 @@
+import notionThumbnail from '../assets/Notion Case Study.jpg'
+
 export const tagColors = {
   Design: 'bg-[rgba(127,86,217,0.16)] text-[rgb(177,151,242)]',
   Research: 'bg-[rgba(67,97,238,0.18)] text-[rgb(150,170,250)]',
@@ -13,8 +15,7 @@ export const tagColors = {
 export const useCases = [
   {
     slug: 'notion-ai-ux-redesign',
-    image:
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&h=750&fit=crop&auto=format&q=80',
+    image: notionThumbnail,
     author: 'DualityUX',
     date: '18 Mar 2025',
     client: 'Notion',
