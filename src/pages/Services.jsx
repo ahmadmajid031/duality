@@ -2,15 +2,16 @@ import { useState } from 'react'
 import CtaButton from '../components/CtaButton'
 import Footer from '../components/Footer'
 import { useInView } from '../hooks/useInView'
-import service01 from '../assets/service-01.jpg'
-import service02 from '../assets/service-02.jpg'
+import featureProductDesign from '../assets/feature-product design.jpg'
+import featureWebDesign from '../assets/feature-Web design.jpg'
+import featureUXResearch from '../assets/Feature-UX research.jpg'
 
 const services = [
   {
     title: 'Product Design',
     subtitle:
       'We help teams turn complex requirements into products people enjoy using.',
-    image: service01,
+    image: featureProductDesign,
     items: [
       {
         title: 'User-centered interfaces',
@@ -32,7 +33,7 @@ const services = [
   {
     title: 'Website Design and Development',
     subtitle: 'We help our clients reach their website designs.',
-    image: service02,
+    image: featureWebDesign,
     items: [
       {
         title: 'Responsive, pixel-perfect builds',
@@ -55,8 +56,7 @@ const services = [
     title: 'UX Research',
     subtitle:
       'We uncover what your users actually need, not just what they ask for.',
-    image:
-      'https://images.unsplash.com/photo-1552581234-26160f608093?w=1200&h=1400&fit=crop&auto=format&q=80',
+    image: featureUXResearch,
     items: [
       {
         title: 'User interviews & usability testing',

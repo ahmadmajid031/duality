@@ -1,7 +1,8 @@
 import CtaButton from './CtaButton'
 import { useInView } from '../hooks/useInView'
-import feature01 from '../assets/feature-01.jpg'
-import feature02 from '../assets/feature-02.jpg'
+import sectionProductDesign from '../assets/section-product design.jpg'
+import sectionWebDesign from '../assets/section-web design.jpg'
+import sectionUXResearch from '../assets/section-UX research.jpg'
 
 const rows = [
   {
@@ -9,57 +10,38 @@ const rows = [
     description:
       'We dig into how real users behave, then translate those insights into a clear product strategy. Every decision is backed by data and validated with your users.',
     reverse: false,
-    glow: 'top-right',
+    image: sectionUXResearch,
+    alt: 'UX Research',
   },
   {
     title: 'Design Systems & UI',
     description:
       'We build flexible, reusable design systems that scale with your product. Consistent components mean faster shipping without sacrificing quality.',
     reverse: true,
-    glow: 'feature-02',
+    image: sectionProductDesign,
+    alt: 'Product Design',
   },
   {
     title: 'Prototyping & Testing',
     description:
       'Before a single line of code ships, we prototype and test with real users—catching usability issues early so you can launch with confidence.',
     reverse: false,
-    glow: 'bottom-right-teal',
+    image: sectionWebDesign,
+    alt: 'Web Design',
   },
 ]
 
 const dotYPositions = ['0%', '33.3333%', '66.6667%', '100%']
 const dotXPositions = ['0%', '100%']
 
-function GlowPanel({ variant }) {
-  if (variant === 'top-right') {
-    return (
-      <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-black overflow-hidden">
-        <img
-          src={feature01}
-          alt="Tools and integrations we work with"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
-    )
-  }
-
-  if (variant === 'feature-02') {
-    return (
-      <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-black overflow-hidden">
-        <img
-          src={feature02}
-          alt="Design systems and UI work"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
-    )
-  }
-
+function ImagePanel({ src, alt }) {
   return (
     <div className="relative min-h-[280px] sm:min-h-[340px] lg:min-h-[400px] bg-black overflow-hidden">
-      {variant === 'bottom-right-teal' && (
-        <div className="absolute -bottom-[20%] -right-[15%] w-[65%] h-[65%] bg-[rgba(1,150,190,0.32)] blur-[100px] rounded-full pointer-events-none" />
-      )}
+      <img
+        src={src}
+        alt={alt}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
     </div>
   )
 }
@@ -138,13 +120,13 @@ function Services() {
               >
                 {row.reverse ? (
                   <>
-                    <GlowPanel variant={row.glow} />
+                    <ImagePanel src={row.image} alt={row.alt} />
                     <TextPanel title={row.title} description={row.description} />
                   </>
                 ) : (
                   <>
                     <TextPanel title={row.title} description={row.description} />
-                    <GlowPanel variant={row.glow} />
+                    <ImagePanel src={row.image} alt={row.alt} />
                   </>
                 )}
               </div>
