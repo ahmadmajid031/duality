@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { getCalApi } from '@calcom/embed-react'
 import Footer from '../components/Footer'
 
 const services = [
@@ -72,41 +73,13 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
-    if (window.Cal?.loaded) return
-    ;(function (C, A, L) {
-      const p = (a, ar) => a.q.push(ar)
-      const d = C.document
-      C.Cal = C.Cal || function () {
-        const cal = C.Cal
-        const ar = arguments
-        if (!cal.loaded) {
-          cal.ns = {}
-          cal.q = cal.q || []
-          d.head.appendChild(d.createElement('script')).src = A
-          cal.loaded = true
-        }
-        if (ar[0] === L) {
-          const api = function () { p(api, arguments) }
-          const namespace = ar[1]
-          api.q = api.q || []
-          if (typeof namespace === 'string') {
-            cal.ns[namespace] = cal.ns[namespace] || api
-            p(cal.ns[namespace], ar)
-            p(cal, ['initNamespace', namespace])
-          } else p(cal, ar)
-          return
-        }
-        p(cal, ar)
-      }
-    })(window, 'https://app.cal.com/embed/embed.js', 'init')
-
-    Cal('init', '30min', { origin: 'https://app.cal.com' })
-    Cal.config = Cal.config || {}
-    Cal.config.forwardQueryParams = true
-    Cal.ns['30min']('ui', { hideEventTypeDetails: false, layout: 'month_view' })
+    ;(async function () {
+      const cal = await getCalApi({ namespace: '30min' })
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' })
+    })()
   }, [])
 
-  const toggleService = (service) => {
+const toggleService = (service) => {
     setSelectedServices((prev) =>
       prev.includes(service)
         ? prev.filter((s) => s !== service)
@@ -143,8 +116,8 @@ function Contact() {
                 Interested in talking us through your problem?{' '}
                 <button
                   type="button"
-                  data-cal-link="dualityux/30min"
                   data-cal-namespace="30min"
+                  data-cal-link="dualityux/30min"
                   data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                   className="font-display text-base sm:text-lg text-white underline hover:text-[rgb(200,200,200)] transition-colors cursor-pointer bg-transparent border-0 p-0"
                 >
