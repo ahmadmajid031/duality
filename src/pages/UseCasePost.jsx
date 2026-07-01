@@ -127,6 +127,11 @@ function UseCasePost() {
           <div className="absolute right-[2%] top-[5%] w-[48%] h-[48%] bg-[rgba(1,100,190,0.2)] blur-[120px] rounded-full pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8 text-center">
+            {useCase.kicker && (
+              <p className="m-0 mb-5 font-display text-sm font-medium text-[rgb(140,140,140)] animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]">
+                {useCase.kicker}
+              </p>
+            )}
             <div className="relative inline-block animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]">
               <h1 className="m-0 font-display font-light text-[32px] leading-[40px] sm:text-[44px] sm:leading-[52px] text-white">
                 {useCase.title}

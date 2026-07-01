@@ -1,4 +1,5 @@
 import notionThumbnail from '../assets/Notion Case Study.jpg'
+import hockeystackThumbnail from '../assets/Hockeystack Case Study.jpg'
 
 export const tagColors = {
   Design: 'bg-[rgba(127,86,217,0.16)] text-[rgb(177,151,242)]',
@@ -10,6 +11,7 @@ export const tagColors = {
   'Product Design': 'bg-[rgba(127,86,217,0.16)] text-[rgb(177,151,242)]',
   'UX Research': 'bg-[rgba(67,97,238,0.18)] text-[rgb(150,170,250)]',
   AI: 'bg-[rgba(6,182,212,0.18)] text-[rgb(103,232,249)]',
+  Analytics: 'bg-[rgba(5,150,105,0.18)] text-[rgb(134,224,189)]',
 }
 
 export const useCases = [
@@ -19,6 +21,7 @@ export const useCases = [
     author: 'DualityUX',
     date: '18 Mar 2025',
     client: 'Notion',
+    kicker: 'Notion AI · Feature redesign · Embedded product design',
     title:
       'Notion AI — Closing the gap between a feature that worked and one people used',
     description:
@@ -70,7 +73,7 @@ export const useCases = [
         heading: 'A conversation, not a command box',
         paragraphs: [
           'I started with research: surveys across 150 users plus a dig into the interaction analytics. Two findings reframed the whole project. Around 95% of people using AI at the time had learned it through ChatGPT. They arrived with a fixed expectation of what an AI surface is: a chat. Almost nobody used the AI in a single shot. Real use was iterative — people refined, corrected, and asked again.',
-          'The dialog was optimized for a one-shot request. But the real behavior was a conversation, and the small box actively punished it: no room to hold a thread, and an interaction model that assumed you\'d get what you needed in one go. We moved to a persistent conversational surface that matched both the mental model people walked in with and the iterative way they actually worked.',
+          "The dialog was optimized for a one-shot request. But the real behavior was a conversation, and the small box actively punished it: no room to hold a thread, and an interaction model that assumed you'd get what you needed in one go. We moved to a persistent conversational surface that matched both the mental model people walked in with and the iterative way they actually worked.",
         ],
       },
       {
@@ -114,6 +117,109 @@ export const useCases = [
         paragraphs: [
           "When a category is being defined by someone else, you don't get to invent your own interaction grammar yet. You meet people where their expectations already sit, then differentiate on substance.",
           "The win here came less from the model than from respecting two things the original design ignored: the mental model users brought with them, and the fact that good AI use is iterative and visible — not instant and silent.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'hockeystack-attribution-dashboard',
+    image: hockeystackThumbnail,
+    author: 'DualityUX',
+    date: '12 May 2025',
+    client: 'HockeyStack',
+    kicker: 'HockeyStack · Attribution dashboard · Embedded product design',
+    title: 'The information was right. The packaging wasn\'t.',
+    description:
+      'HockeyStack already gave marketers every touchpoint that led to a purchase. The problem wasn\'t the data. It was that nobody knew where to look.',
+    tags: ['Product Design', 'UX Research', 'Analytics'],
+    blocks: [
+      {
+        type: 'quote',
+        text: "There is so much information on this page. I didn't know where to look. It was super useful — but quickly getting information was a task.",
+      },
+      {
+        type: 'text',
+        heading: 'Context',
+        paragraphs: [
+          'HockeyStack unifies analytics, attribution and reporting so a B2B marketer can trace every touch a buyer took before converting — LinkedIn ads, blog visits, webinar signups, sales calls — inside one product. Attribution is the wedge. Everything else exists to make it defensible.',
+          'I joined as an embedded product designer to work on the attribution dashboard experience.',
+        ],
+      },
+      {
+        type: 'text',
+        heading: '01 — The problem',
+        paragraphs: [
+          'The attribution dashboard held everything: CTR, CPC, MQLs, cost per lead, ROAS, bounce rate, session duration, conversions — per channel, per campaign, per week, all rendered at once. Every number was correct. Every number was useful to somebody, sometime. But laid out flat, the page didn\'t answer the one question a marketer arrives with: is what I did last week working, and where should I put next week\'s budget?',
+        ],
+      },
+      {
+        type: 'image',
+        src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&h=875&fit=crop&auto=format&q=80',
+      },
+      {
+        type: 'text',
+        heading: '02 — The reframe',
+        paragraphs: [
+          'What we got right: giving marketers the whole picture. The data was there. The measurements were correct.',
+          "What we got wrong: trusting that having the data was the same as using it. It wasn't packaged for how a marketer reads a dashboard. The information was right. The packaging wasn't.",
+          "This wasn't a data problem. It was a composition problem — a question of what to put next to what, at what size, and in what order. Same ingredients, different plate.",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "A user's attention is a limited magic potion. Every glance, click, keypress and eye-flick spends some of it. Even if the data tells a hundred stories, if the eye has to hunt to piece them together, the user is spending potion on plumbing — and will leave frustrated before they get the story.",
+      },
+      {
+        type: 'image-grid',
+        images: [
+          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=650&fit=crop&auto=format&q=80',
+          'https://images.unsplash.com/photo-1553484771-371a605b060b?w=900&h=650&fit=crop&auto=format&q=80',
+        ],
+      },
+      {
+        type: 'text',
+        heading: '03 — Two paths we tested',
+        paragraphs: [
+          'Marketers care about two things at once: which channel is working, and which metric is moving. Same numbers, two very different mental models. We prototyped both.',
+          'Path A — Group by metric. One card per metric (CTR, conversion rate, ROAS), each listing every channel underneath. Answers "which channel has the best CTR?" in one glance. Doesn\'t answer "how is LinkedIn doing this month, overall?" — that becomes a four-card scavenger hunt.',
+          'Path B — Group by channel. One card per channel (LinkedIn ads, Google ads, Meta ads), each listing every metric inside. Answers "how is LinkedIn performing?" in one glance. The trade-off: comparing one metric across channels becomes a two-step scan instead of one. We took it, because that wasn\'t the question users started with.',
+          'We ran both through five users on planned tasks — "tell me if LinkedIn is still worth the spend," "find our worst channel this quarter." Channel-grouping won on task time and on the follow-up question: which layout would you rather explain to your manager on a Monday morning?',
+        ],
+      },
+      {
+        type: 'text',
+        heading: '04 — The solution',
+        paragraphs: [
+          'Once each channel had its own card, the next question was how to show what happens inside that channel. The old dashboard used bar and pie charts — easy to implement, but they show composition, not movement. And the marketer\'s real question was always about movement: where do people go, and where do they drop off?',
+          'We swapped in Sankey diagrams. Same information, but the eye now follows a flow instead of counting slices. Reading it takes about three seconds. LinkedIn is the biggest source, but its drop-off ribbon is heavier than its converting one. Google\'s story is worse. Organic search punches above its weight. That\'s the story the old bar chart contained but never told.',
+        ],
+      },
+      {
+        type: 'image',
+        src: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1400&h=875&fit=crop&auto=format&q=80',
+      },
+      {
+        type: 'text',
+        heading: '05 — What changed',
+        paragraphs: [
+          'We rolled the redesign out behind a feature flag to a subset of accounts and ran user interviews and Hotjar surveys against both versions for four weeks.',
+          'Time to answer a task question — noticeably faster. Users found the metric they wanted without scrolling back up. Measured qualitatively; we didn\'t have a rigorous task-time instrument in place.',
+          'Feedback tone — warmer. "Overwhelming" stopped appearing in Hotjar surveys. "Clear" and "I can see the story" started showing up in its place.',
+        ],
+      },
+      {
+        type: 'image-grid',
+        images: [
+          'https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=900&h=650&fit=crop&auto=format&q=80',
+          'https://images.unsplash.com/photo-1526628953301-3cd5f5e7a9e4?w=900&h=650&fit=crop&auto=format&q=80',
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Reflection',
+        paragraphs: [
+          'If the users had been revenue teams instead of marketers, I\'d have grouped by metric — because a revenue team\'s first question is "what\'s moving?", not "which channel?" Packaging is a function of who\'s reading. Get into the head of the user before you touch the layout, and the rest is arrangement.',
+          'Design decisions live and die by whose question you\'re answering first.',
         ],
       },
     ],
