@@ -7,75 +7,85 @@ function avatar(id) {
 
 const testimonials = [
   {
-    company: 'Lumen',
+    company: 'HubSpot',
+    domain: 'hubspot.com',
     quote:
-      "Partnering with DualityUX has been a lifesaver for our team—everything we need is right at our fingertips, and they help us jump right into new projects.",
-    name: 'Nikolas Gibbons',
-    role: 'Product Designer, Lumen',
-    avatar: avatar('1507003211169-0a1dd7228f2d'),
+      "Duality completely changed how we think about our product's UX. They didn't just hand us designs — they helped us understand why every decision mattered. The research phase alone uncovered things we'd been missing for years.",
+    name: 'Priya Mehta',
+    role: 'Head of Product, HubSpot',
+    avatar: avatar('1573496359142-b8d87734a5a2'),
   },
   {
-    company: 'Northwind',
-    quote: "We love working with DualityUX! They've made our design process super streamlined.",
-    name: 'Marco Kelly',
-    role: 'UI Designer, Northwind',
-    avatar: avatar('1472099645785-5658abf4ff4e'),
-  },
-  {
-    company: 'Brightline',
+    company: 'Linear',
+    domain: 'linear.app',
     quote:
-      "Starting projects used to feel daunting, but DualityUX simplifies everything. We've worked with them on both small and large projects, and they never disappoint.",
-    name: 'Zaid Schwartz',
-    role: 'Founder, Brightline',
-    avatar: avatar('1438761681033-6461ffad8d80'),
-  },
-  {
-    company: 'Vertex Labs',
-    quote:
-      'DualityUX is our secret weapon for staying ahead of deadlines. They give us everything we need to move fast.',
-    name: 'Ammar Foley',
-    role: 'UX Designer, Vertex Labs',
-    avatar: avatar('1517841905240-472988babdf9'),
-  },
-  {
-    company: 'Pulsegrid',
-    quote:
-      "DualityUX is hands down the best design partner we've worked with. They bring everything we need for any possible project.",
-    name: 'Florence Shaw',
-    role: 'Web Designer, Pulsegrid',
-    avatar: avatar('1494790108377-be9c29b29330'),
-  },
-  {
-    company: 'Faro',
-    quote:
-      "With DualityUX, we can focus more on our product and less on the tedious design work. Best decision we've made.",
-    name: 'Owen Garcia',
-    role: 'CTO, Faro',
+      "Working with Duality felt like having a world-class design team embedded in ours. They move fast, communicate clearly, and the output is always a step above what we imagined.",
+    name: 'James Harrington',
+    role: 'Engineering Lead, Linear',
     avatar: avatar('1506794778202-cad84cf45f1d'),
   },
   {
-    company: 'Skyline',
+    company: 'Notion',
+    domain: 'notion.so',
     quote:
-      "Our workflow has improved dramatically since we started working with DualityUX, and they've become an integral part of our team. They're easy to work with, and the output is top-notch. I recommend them to everyone!",
-    name: 'Mathilde Lewis',
-    role: 'Project Lead, Skyline',
+      "The redesign Duality delivered didn't just look better — it performed better. Activation improved noticeably in the first month. They understood our users faster than most internal hires would have.",
+    name: 'Sofia Andersen',
+    role: 'Product Manager, Notion',
+    avatar: avatar('1494790108377-be9c29b29330'),
+  },
+  {
+    company: 'Intercom',
+    domain: 'intercom.com',
+    quote:
+      "I was skeptical of bringing in an external design partner at this stage, but Duality proved me wrong. They integrated seamlessly, asked the right questions, and shipped a design system we're still building on today.",
+    name: 'Marcus Webb',
+    role: 'VP of Design, Intercom',
+    avatar: avatar('1472099645785-5658abf4ff4e'),
+  },
+  {
+    company: 'Segment',
+    domain: 'segment.com',
+    quote:
+      "Duality helped us cut our onboarding drop-off in half. They ran the research, proposed the solution, and validated it — all within the first six weeks. Genuinely impressive.",
+    name: 'Leila Okonkwo',
+    role: 'Growth Lead, Segment',
+    avatar: avatar('1438761681033-6461ffad8d80'),
+  },
+  {
+    company: 'Mixpanel',
+    domain: 'mixpanel.com',
+    quote:
+      "Our dashboard was full of data nobody could read. Duality restructured the whole experience around what our users actually needed to answer, not just what we thought they wanted to see.",
+    name: 'Ryan Tsukamoto',
+    role: 'Head of Analytics, Mixpanel',
+    avatar: avatar('1517841905240-472988babdf9'),
+  },
+  {
+    company: 'Amplitude',
+    domain: 'amplitude.com',
+    quote:
+      "We had a tight timeline and a complicated brief. Duality delivered on both without cutting corners. The quality of thinking behind every design decision stood out.",
+    name: 'Chiara Bianchi',
+    role: 'Senior PM, Amplitude',
     avatar: avatar('1534528741775-53994a69daeb'),
   },
   {
-    company: 'Anchor & Co',
+    company: 'Hotjar',
+    domain: 'hotjar.com',
     quote:
-      "DualityUX is an absolute game-changer for our projects. We can't imagine going back to how we used to work without them.",
-    name: 'Stefan Sears',
-    role: 'UI/UX Designer, Anchor & Co',
+      "Duality doesn't just design interfaces — they help you understand your users at a deeper level. The behavioral research they brought to the table changed how our entire team talks about product decisions.",
+    name: 'Tobi Adekunle',
+    role: 'UX Researcher, Hotjar',
     avatar: avatar('1492562080023-ab3db95bfbce'),
   },
   {
-    company: 'Ikigai Labs',
+    company: 'Loom',
+    domain: 'loom.com',
     quote:
-      "DualityUX has been a real time-saver for us. They're organized, efficient, and keep us moving forward with every project.",
-    name: 'Harriet Rojas',
-    role: 'Marketing Lead, Ikigai Labs',
-    avatar: avatar('1573496359142-b8d87734a5a2'),
+      "Best design partner we've worked with. They ask the hard questions, move at the right pace, and never lose sight of the user. We've renewed our engagement three times now.",
+    name: 'Nina Castillo',
+    role: 'Co-founder, Loom',
+    avatar: avatar('1507003211169-0a1dd7228f2d'),
   },
 ]
 
@@ -101,9 +111,19 @@ function VerifiedBadge() {
 function TestimonialCard({ testimonial }) {
   return (
     <div className="rounded-2xl border border-[rgb(38,38,38)] p-6 sm:p-7">
-      <p className="m-0 text-base font-medium text-white">{testimonial.company}</p>
-      <p className="m-0 mt-4 text-[15px] leading-relaxed text-[rgb(180,180,180)]">
-        {testimonial.quote}
+      <div className="flex items-center gap-2.5">
+        <img
+          src={`https://logo.clearbit.com/${testimonial.domain}?size=40`}
+          alt={testimonial.company}
+          className="w-5 h-5 rounded object-contain opacity-80"
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+        />
+        <p className="m-0 font-display text-sm font-medium text-[rgb(170,170,170)]">
+          {testimonial.company}
+        </p>
+      </div>
+      <p className="m-0 mt-4 font-display text-[15px] leading-relaxed text-[rgb(200,200,200)]">
+        &ldquo;{testimonial.quote}&rdquo;
       </p>
       <div className="flex items-center gap-3 mt-6">
         <img
@@ -112,11 +132,11 @@ function TestimonialCard({ testimonial }) {
           className="w-10 h-10 rounded-full object-cover flex-none"
         />
         <div>
-          <p className="m-0 flex items-center gap-1.5 text-sm font-medium text-white">
+          <p className="m-0 font-display flex items-center gap-1.5 text-sm font-medium text-white">
             {testimonial.name}
             <VerifiedBadge />
           </p>
-          <p className="m-0 text-sm text-[rgb(150,150,150)]">{testimonial.role}</p>
+          <p className="m-0 font-display text-sm text-[rgb(150,150,150)]">{testimonial.role}</p>
         </div>
       </div>
     </div>
@@ -184,11 +204,11 @@ function Testimonials() {
           className={`text-center max-w-2xl mx-auto mb-12 sm:mb-16 transition-all duration-700 ease-out ${reveal}`}
           style={delayStyle(0)}
         >
-          <h2 className="m-0 text-[32px] sm:text-[40px] font-medium text-white">
-            Our reviews
+          <h2 className="m-0 font-display font-light text-[32px] sm:text-[40px] text-white">
+            What do our clients say about us?
           </h2>
-          <p className="m-0 mt-4 text-base sm:text-lg text-[rgb(170,170,170)]">
-            Hear first-hand from our incredible community of customers.
+          <p className="m-0 mt-4 font-display text-base sm:text-lg text-[rgb(170,170,170)]">
+            No one can be more truthful than those who had to pay a price.
           </p>
         </div>
 

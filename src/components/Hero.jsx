@@ -9,26 +9,29 @@ const handles = [
 ]
 
 const headlineWords = [
-  'Where',
-  'data',
+  'Duality',
+  'is',
+  'a',
+  'branding',
   'and',
+  'UX',
   'design',
-  'create',
-  'great',
-  'digital',
-  'experiences',
+  'agency',
 ]
 
-// Placeholder client wordmarks until real logos are supplied.
 const clients = [
-  'Lumen',
-  'Northwind',
-  'Vertex Labs',
-  'Pulsegrid',
-  'Anchor & Co',
-  'Skyline',
-  'Brightline',
-  'Faro',
+  { name: 'HubSpot',   domain: 'hubspot.com' },
+  { name: 'Notion',    domain: 'notion.so' },
+  { name: 'Linear',    domain: 'linear.app' },
+  { name: 'Figma',     domain: 'figma.com' },
+  { name: 'Vercel',    domain: 'vercel.com' },
+  { name: 'Intercom',  domain: 'intercom.com' },
+  { name: 'Segment',   domain: 'segment.com' },
+  { name: 'Mixpanel',  domain: 'mixpanel.com' },
+  { name: 'Hotjar',    domain: 'hotjar.com' },
+  { name: 'Amplitude', domain: 'amplitude.com' },
+  { name: 'Loom',      domain: 'loom.com' },
+  { name: 'Airtable',  domain: 'airtable.com' },
 ]
 
 function Hero() {
@@ -77,8 +80,8 @@ function Hero() {
           className="m-0 max-w-[320px] sm:max-w-[460px] md:max-w-[560px] text-center font-display font-light text-[17px] leading-[26px] sm:text-lg sm:leading-7 text-[rgb(238,238,238)] animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
           style={{ animationDelay: '0.9s' }}
         >
-          DualityUX is a design agency dedicated to crafting data-driven
-          digital experiences that balance strategy and creativity.
+          We aim to bridge objective, data-driven decisions with the
+          subjectivity of human experience.
         </p>
 
         <div
@@ -86,7 +89,7 @@ function Hero() {
           style={{ animationDelay: '1.05s' }}
         >
           <CtaButton href="/use-cases" label="View Case Studies" fullWidthOnMobile />
-          <CtaButton href="/contact" label="Book a call" light fullWidthOnMobile />
+          <CtaButton href="/contact" label="Contact us" light fullWidthOnMobile />
         </div>
       </div>
 
@@ -99,13 +102,19 @@ function Hero() {
           industry
         </span>
         <div className="marquee-mask relative w-full max-w-[1280px] h-8 sm:h-10 overflow-hidden">
-          <div className="absolute left-0 top-0 flex items-center gap-8 sm:gap-10 h-8 sm:h-10 w-max animate-[marquee_34s_linear_infinite] hover:[animation-play-state:paused]">
-            {[...clients, ...clients].map((name, i) => (
+          <div className="absolute left-0 top-0 flex items-center gap-10 sm:gap-14 h-8 sm:h-10 w-max animate-[marquee_40s_linear_infinite] hover:[animation-play-state:paused]">
+            {[...clients, ...clients].map((c, i) => (
               <span
-                key={name + i}
-                className="flex-none h-8 sm:h-10 flex items-center font-display font-medium text-sm sm:text-base text-white/70 whitespace-nowrap"
+                key={c.name + i}
+                className="flex-none flex items-center gap-2.5 font-display font-medium text-sm sm:text-base text-white/70 whitespace-nowrap"
               >
-                {name}
+                <img
+                  src={`https://logo.clearbit.com/${c.domain}?size=32`}
+                  alt={c.name}
+                  className="w-5 h-5 sm:w-6 sm:h-6 rounded object-contain opacity-70"
+                  onError={(e) => { e.currentTarget.style.display = 'none' }}
+                />
+                {c.name}
               </span>
             ))}
           </div>

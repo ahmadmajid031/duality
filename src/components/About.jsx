@@ -36,7 +36,7 @@ function About() {
               className={`m-0 mt-3 font-display font-light text-[32px] leading-[40px] sm:text-[44px] sm:leading-[52px] lg:text-[52px] lg:leading-[60px] tracking-[0.01em] text-white ${reveal(250)}`}
               style={delayStyle(250)}
             >
-              Our mission is to make data and design work as one
+              Our mission is to transform digital experiences by blending AI, design, and technology
             </h2>
           </div>
 
@@ -44,10 +44,10 @@ function About() {
             className={`m-0 max-w-md text-base sm:text-lg leading-relaxed text-[rgb(170,170,170)] lg:pt-2 ${reveal(350)}`}
             style={delayStyle(350)}
           >
-            DualityUX is a design agency that helps teams turn complex data
-            into clear, usable products. Businesses of every size—from
-            early-stage startups to public companies—partner with us to
-            design experiences their users love.
+            Duality is a design agency that helps teams turn data into clear,
+            usable products. Our focus is to create real connections. We
+            combine design with behavioral science and user psychology to make
+            products that feel human.
           </p>
         </div>
       </div>

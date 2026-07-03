@@ -10,7 +10,7 @@ const services = [
   {
     title: 'Product Design',
     subtitle:
-      'We help teams turn complex requirements into products people enjoy using.',
+      'Everyone deserves an exceptional user experience — creators and users alike. We create memorable enterprise and consumer products with comprehensive design systems that not only work great but help you convert.',
     image: featureProductDesign,
     items: [
       {
@@ -32,7 +32,7 @@ const services = [
   },
   {
     title: 'Website Design and Development',
-    subtitle: 'We help our clients reach their website designs.',
+    subtitle: 'Who does not like a beautifully crafted website? It is the most important channel to showcase your brand. We craft award-winning websites that give users the best experience while meeting your business goals.',
     image: featureWebDesign,
     items: [
       {
@@ -55,7 +55,7 @@ const services = [
   {
     title: 'UX Research',
     subtitle:
-      'We uncover what your users actually need, not just what they ask for.',
+      'At Duality, we believe digital experience begins from the users. Users can guide you to the right path faster than any consultant. We translate user insights and shape every UX decision around them.',
     image: featureUXResearch,
     items: [
       {

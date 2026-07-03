@@ -6,25 +6,25 @@ import sectionUXResearch from '../assets/section-UX research.jpg'
 
 const rows = [
   {
-    title: 'UX Research & Strategy',
+    title: 'UX Research and Strategy',
     description:
-      'We dig into how real users behave, then translate those insights into a clear product strategy. Every decision is backed by data and validated with your users.',
+      'At Duality, we believe digital experience begins from the users. Users can guide you to the right path faster than any consultant. We translate user insights and shape every UX decision around them.',
     reverse: false,
     image: sectionUXResearch,
     alt: 'UX Research',
   },
   {
-    title: 'Design Systems & UI',
+    title: 'Product Design',
     description:
-      'We build flexible, reusable design systems that scale with your product. Consistent components mean faster shipping without sacrificing quality.',
+      'Everyone deserves an exceptional user experience — creators and users alike. We create memorable enterprise and consumer products with comprehensive design systems that not only work great but help you convert.',
     reverse: true,
     image: sectionProductDesign,
     alt: 'Product Design',
   },
   {
-    title: 'Prototyping & Testing',
+    title: 'Website Design and Development',
     description:
-      'Before a single line of code ships, we prototype and test with real users—catching usability issues early so you can launch with confidence.',
+      'Who does not like a beautifully crafted website? It is the most important channel to showcase your brand. We craft award-winning websites that give users the best experience while meeting your business goals.',
     reverse: false,
     image: sectionWebDesign,
     alt: 'Web Design',
@@ -86,7 +86,7 @@ function Services() {
             Services
           </p>
           <h2 className="m-0 mt-3 font-display font-light text-[32px] leading-[40px] sm:text-[40px] sm:leading-[48px] text-white">
-            Design and data working in lockstep
+            A full service digital innovation partner
           </h2>
           <p className="m-0 mt-4 text-base sm:text-lg text-[rgb(170,170,170)] leading-relaxed">
             From research to launch, we partner with teams to design digital
