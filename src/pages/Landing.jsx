@@ -1,6 +1,7 @@
 import Hero from '../components/Hero'
 import About from '../components/About'
 import Services from '../components/Services'
+import Sectors from '../components/Sectors'
 import Testimonials from '../components/Testimonials'
 import Footer from '../components/Footer'
 
@@ -12,6 +13,7 @@ function Landing() {
           <Hero />
           <About />
           <Services />
+          <Sectors />
           <Testimonials />
         </main>
       </div>

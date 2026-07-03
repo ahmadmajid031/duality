@@ -11,6 +11,19 @@ const services = [
 
 const companySizes = ['1–10', '11–50', '51–200', '201–500', '500+']
 
+const industries = [
+  'Financial Technology (Fintech)',
+  'B2B Enterprise Software',
+  'Crypto',
+  'Ecommerce',
+  'Fashion Tech',
+  'Venture Capital',
+  'Logistics',
+  'Healthcare',
+  'Education',
+  'Other',
+]
+
 const dotPositions = [
   { top: '0%', left: '0%' },
   { top: '0%', left: '100%' },
@@ -218,17 +231,29 @@ const toggleService = (service) => {
                             </option>
                           ))}
                         </select>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="absolute right-0 top-0 text-[rgb(150,150,150)] pointer-events-none"
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute right-0 top-0 text-[rgb(150,150,150)] pointer-events-none">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
+                    </Field>
+
+                    <Field label="What industry does your company belong to?" required>
+                      <div className="relative">
+                        <select
+                          required
+                          defaultValue=""
+                          className={`${inputClassName} appearance-none cursor-pointer`}
                         >
+                          <option value="" disabled>
+                            Select your industry
+                          </option>
+                          {industries.map((ind) => (
+                            <option key={ind} value={ind} className="text-black">
+                              {ind}
+                            </option>
+                          ))}
+                        </select>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute right-0 top-0 text-[rgb(150,150,150)] pointer-events-none">
                           <path d="M6 9l6 6 6-6" />
                         </svg>
                       </div>
