@@ -2,7 +2,7 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Services from '../components/Services'
 import Sectors from '../components/Sectors'
-import Testimonials from '../components/Testimonials'
+import TestimonialsV2 from '../components/TestimonialsV2'
 import Footer from '../components/Footer'
 
 function Landing() {
@@ -14,7 +14,7 @@ function Landing() {
           <About />
           <Services />
           <Sectors />
-          <Testimonials />
+          <TestimonialsV2 />
         </main>
       </div>
 
