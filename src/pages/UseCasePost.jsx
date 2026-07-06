@@ -87,6 +87,82 @@ function QuoteBlock({ block }) {
   )
 }
 
+function StatsBlock({ block }) {
+  const [ref, isInView] = useInView({ threshold: 0.15 })
+  return (
+    <div
+      ref={ref}
+      className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-700 ease-out ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      {block.stats.map((stat, i) => (
+        <div
+          key={i}
+          className="border border-[rgb(38,38,38)] rounded-2xl bg-white/[0.02] p-6 flex flex-col gap-2"
+        >
+          <p className="m-0 font-display font-light text-3xl sm:text-4xl text-white tracking-tight">
+            {stat.value}
+          </p>
+          <p className="m-0 font-display text-sm text-[rgb(150,150,150)] leading-snug">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function TLDRBlock({ block }) {
+  const [ref, isInView] = useInView({ threshold: 0.15 })
+  return (
+    <div
+      ref={ref}
+      className={`border border-[rgb(50,40,70)] rounded-2xl bg-[rgba(127,86,217,0.06)] p-6 sm:p-8 transition-all duration-700 ease-out ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      <p className="m-0 mb-3 font-display text-xs font-semibold tracking-widest uppercase text-[rgb(177,151,242)]">
+        TL;DR
+      </p>
+      <p className="m-0 font-display text-base sm:text-lg text-[rgb(210,210,210)] leading-relaxed">
+        {block.text}
+      </p>
+    </div>
+  )
+}
+
+function CTABlock({ block }) {
+  const [ref, isInView] = useInView({ threshold: 0.15 })
+  return (
+    <div
+      ref={ref}
+      className={`border border-[rgb(38,38,38)] rounded-2xl bg-white/[0.02] p-6 sm:p-8 text-center transition-all duration-700 ease-out ${
+        isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      <p className="m-0 mb-6 font-display text-base sm:text-lg text-[rgb(200,200,200)] leading-relaxed max-w-xl mx-auto">
+        {block.text}
+      </p>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        {block.links.map((link, i) => (
+          <Link
+            key={i}
+            to={link.href}
+            className={`no-underline font-display text-sm font-medium px-5 py-2.5 rounded-full transition-colors duration-200 ${
+              i === 0
+                ? 'bg-white text-[rgb(5,5,5)] hover:bg-[rgb(220,220,220)]'
+                : 'border border-[rgb(60,60,60)] text-[rgb(180,180,180)] hover:border-[rgb(100,100,100)] hover:text-white'
+            }`}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function ImageGridBlock({ block }) {
   const [ref, isInView] = useInView({ threshold: 0.15 })
   return (
@@ -148,6 +224,15 @@ function UseCasePost() {
               ))}
             </div>
 
+            {useCase.subtitle && (
+              <p
+                className="m-0 mt-7 font-display text-base sm:text-lg text-[rgb(155,155,155)] leading-relaxed max-w-2xl mx-auto animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
+                style={{ animationDelay: '0.1s' }}
+              >
+                {useCase.subtitle}
+              </p>
+            )}
+
             <div
               className="flex items-center justify-center gap-2 mt-7 font-display text-sm font-medium text-[rgb(170,170,170)] animate-[fadeUp_0.7s_cubic-bezier(.2,.7,.2,1)_both]"
               style={{ animationDelay: '0.12s' }}
@@ -189,8 +274,10 @@ function UseCasePost() {
             if (block.type === 'quote') return <QuoteBlock key={i} block={block} />
             if (block.type === 'text') return <TextBlock key={i} block={block} />
             if (block.type === 'image') return <ImageBlock key={i} block={block} />
-            if (block.type === 'image-grid')
-              return <ImageGridBlock key={i} block={block} />
+            if (block.type === 'image-grid') return <ImageGridBlock key={i} block={block} />
+            if (block.type === 'stats') return <StatsBlock key={i} block={block} />
+            if (block.type === 'tldr') return <TLDRBlock key={i} block={block} />
+            if (block.type === 'cta') return <CTABlock key={i} block={block} />
             return null
           })}
         </div>

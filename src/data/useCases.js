@@ -21,23 +21,39 @@ export const useCases = [
     author: 'DualityUX',
     date: '18 Mar 2025',
     client: 'Notion',
-    kicker: 'Notion AI · Feature redesign · Embedded product design',
-    title:
-      'Notion AI — Closing the gap between a feature that worked and one people used',
+    kicker: 'Embedded Product Designer · AI feature redesign, live surface · 3 months · Notion AI',
+    title: 'Taking Notion AI from ignored to indispensable: 11% adoption to 4× deeper use',
+    subtitle: "The AI wasn't broken. It just didn't behave like the AI people had already learned to trust — so we redesigned the container, not the model.",
     description:
       'How aligning an AI feature with the mental model users had already built elsewhere turned a 3.2 average into 12.3 — without touching the underlying model.',
     tags: ['Product Design', 'UX Research', 'AI'],
     blocks: [
       {
-        type: 'quote',
-        text: "The AI wasn't broken. It just didn't behave like the AI people had already learned to trust.",
+        type: 'stats',
+        stats: [
+          { value: '+60%', label: 'Total AI interactions after redesign' },
+          { value: '3.2 → 12.3', label: 'Average interactions per user' },
+          { value: '11%', label: 'Adoption at project start — the number that triggered the engagement' },
+        ],
+      },
+      {
+        type: 'tldr',
+        text: "Notion bet a $10/month pricing tier on its AI feature; only 11% of users touched it, and those who did drifted off after three tries. Research showed users weren't rejecting the output — they were rejecting an interaction model that contradicted the one ChatGPT had just taught the entire market. We replaced the one-shot command dialog with a persistent conversational surface and streamed responses instead of delivering them instantly. Interactions rose 60%, and depth of use nearly quadrupled.",
       },
       {
         type: 'text',
-        heading: 'Context',
+        heading: 'The stakes',
         paragraphs: [
-          'Notion shipped its AI feature as a new paid tier at $10/month. I joined the team as an embedded product designer responsible for how the feature lived inside the editor. The constraint that shaped everything: three months, and a feature that had already launched.',
-          "I wasn't drawing on a blank page — I was redesigning a live surface that people were quietly walking past.",
+          "Notion had shipped AI as a new paid tier at $10 per month. This wasn't a feature experiment — it was a revenue bet, priced and public.",
+          "Eleven percent of users touched it at all. The ones who did used it about 3.2 times on average, then drifted off. Nobody was rejecting it loudly — they were just skipping it. And quiet skipping is worse than loud rejection: there was no complaint to fix, just a paid tier that wasn't earning its price.",
+          "The question on the table wasn't whether the output was any good. The output was fine. The question was: why does no one come back?",
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'The constraint',
+        paragraphs: [
+          "Three months. A feature that had already launched. I wasn't drawing on a blank page — I was redesigning a live surface that people were quietly walking past, without breaking it for the 11% who used it.",
         ],
       },
       {
@@ -46,19 +62,30 @@ export const useCases = [
       },
       {
         type: 'text',
-        heading: 'The tension',
+        heading: 'The diagnosis',
         paragraphs: [
-          "The feature was out. People weren't using it.",
-          "Eleven percent of users touched it at all. The ones who did used it about 3.2 times on average, then drifted off. Nobody was rejecting it loudly — they were just skipping it. The company had bet a pricing tier on this, and the question on the table wasn't whether the output was any good. The output was fine. The question was: why does no one come back?",
+          "I started with surveys across 150 users, paired with interaction analytics. Two findings reframed the entire project.",
+          "Around 95% of AI users at the time had learned AI through ChatGPT. It had just landed and, within weeks, defined what talking to an AI was supposed to feel like — you ask, it pauses, it answers one character at a time, like a person typing back. That became the default mental model for an entire category of users, fast.",
+          "Almost nobody used AI in a single shot. Real use was iterative — people refined, corrected, asked again.",
+          "Notion's AI contradicted both findings at once. You inserted an AI block, hit /, and a cramped dialog opened, optimized for a one-shot request that returned a finished text block. Functionally complete. Experientially, a different species from the thing everyone had just gotten used to — and actively hostile to iteration, the one thing AI use actually demands.",
+          "The problem wasn't the model's output. It was the container and the choreography around it.",
         ],
       },
       {
         type: 'text',
-        heading: 'What we were actually up against',
+        heading: 'Decision one: a conversation, not a command box',
         paragraphs: [
-          "Timing mattered more than anything. ChatGPT had just landed, and within weeks it had defined what talking to an AI was supposed to feel like — you ask, it pauses, it answers one character at a time, like a person typing back to you. That became the default mental model for an entire category of users, fast.",
-          "Notion's AI didn't work like that. You inserted an AI block, hit /, and a small dialog opened. You typed your request into a cramped box, and it returned a text block you could paste or edit. Functionally complete. Experientially, a different species from the thing everyone had just gotten used to.",
-          "My read going in: the problem wasn't the model's output — it was the container and the choreography around it. People weren't avoiding the AI because it was bad. They were avoiding it because it didn't behave the way they'd just been taught to expect, and because it gave them no room to do the one thing AI actually demands — iterate.",
+          "We replaced the ephemeral / dialog with a persistent conversational surface — somewhere a thread could actually accumulate. This matched both the grammar users imported from ChatGPT and the iterative way they demonstrably worked.",
+          "The strategic call underneath it: when a category is being defined by someone else, you don't get to invent your own interaction grammar. You meet users where their expectations already sit, then differentiate on substance.",
+        ],
+      },
+      {
+        type: 'text',
+        heading: 'Decision two: make the work visible, on purpose',
+        paragraphs: [
+          "The old behavior: you submit, the system thinks in silence, then the complete answer appears all at once. Sounds efficient. It wasn't — it was unsettling.",
+          "There's a perception-of-labour problem hiding here. Import a thousand records and have it finish in a blink, and your first thought isn't 'how fast' — it's 'what broke?' Instant, complete output reads as suspicious, not impressive.",
+          "So we did something that looks like adding friction: we streamed responses with a continuous typewriter animation instead of dropping them in whole. We weren't removing a feature — we were removing the instantaneity that was quietly eroding trust. The system needed to be seen doing work on the user's behalf.",
         ],
       },
       {
@@ -70,53 +97,26 @@ export const useCases = [
       },
       {
         type: 'text',
-        heading: 'A conversation, not a command box',
+        heading: 'The results',
         paragraphs: [
-          'I started with research: surveys across 150 users plus a dig into the interaction analytics. Two findings reframed the whole project. Around 95% of people using AI at the time had learned it through ChatGPT. They arrived with a fixed expectation of what an AI surface is: a chat. Almost nobody used the AI in a single shot. Real use was iterative — people refined, corrected, and asked again.',
-          "The dialog was optimized for a one-shot request. But the real behavior was a conversation, and the small box actively punished it: no room to hold a thread, and an interaction model that assumed you'd get what you needed in one go. We moved to a persistent conversational surface that matched both the mental model people walked in with and the iterative way they actually worked.",
+          "After the redesign, total AI interactions rose 60%. Average interactions per user climbed from 3.2 to 12.3 — not just more people trying it once, but people staying in it long enough to iterate, which was the whole point, and the behavior a subscription price depends on.",
+          "Both findings were validated by the same instruments used in diagnosis — the survey panel and interaction analytics — so we were measuring the thing we set out to move, not a proxy.",
         ],
       },
       {
         type: 'text',
-        heading: 'Make the work visible, on purpose',
+        heading: 'The principle',
         paragraphs: [
-          "The old behavior: you submit, it thinks in silence, then the complete answer appears all at once. Sounds efficient. It wasn't — it was unsettling. There's a perception-of-labour problem hiding here. Import a thousand records and have it finish in a blink, and your first thought isn't 'how fast' — it's 'what broke?' Instant, complete output reads as suspicious, not impressive.",
-          "ChatGPT's slower, streamed typing did the opposite: it made the work feel considered, in progress, real. So we did something that looks like adding friction. We streamed the response with a continuous typewriter animation instead of dropping it in whole. The subtraction wasn't removing a feature — it was removing the instantaneity that was quietly eroding trust.",
+          "Conversion problems are trust problems. Users didn't skip Notion AI because the output was weak. They skipped it because two design choices — an unfamiliar interaction grammar and invisible, instant labour — made the system feel untrustworthy in ways nobody could articulate. The redesign added no capability. It restored trust, and usage followed.",
+          "This is the lens we bring to every engagement: before assuming your feature needs more power, ask what's making users hesitate to rely on the power it already has.",
         ],
       },
       {
-        type: 'image',
-        src: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1400&h=875&fit=crop&auto=format&q=80',
-      },
-      {
-        type: 'text',
-        heading: 'Craft at the seams',
-        paragraphs: [
-          "Two changes carried the redesign. The container: the ephemeral / dialog became a persistent chat surface — somewhere a conversation could actually accumulate, matching the grammar people imported from ChatGPT. The delivery: responses streamed in with a continuous typewriter animation rather than appearing all at once, restoring the sense that the system was doing work on your behalf.",
-          "The throughline: stop fighting the mental model people already had, and stop hiding the labour they needed to see.",
-        ],
-      },
-      {
-        type: 'text',
-        heading: 'Evidence',
-        paragraphs: [
-          'Surveys across 150 users to establish what people expected and where they stalled, paired with interaction analytics to validate the direction before committing to it.',
-          'After the redesign, AI interactions rose 60%. Average interactions per user climbed from 3.2 to 12.3 — not just more people trying it once, but people staying in it long enough to iterate, which was the whole point.',
-        ],
-      },
-      {
-        type: 'image-grid',
-        images: [
-          'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=900&h=650&fit=crop&auto=format&q=80',
-          'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&h=650&fit=crop&auto=format&q=80',
-        ],
-      },
-      {
-        type: 'text',
-        heading: 'What it taught me',
-        paragraphs: [
-          "When a category is being defined by someone else, you don't get to invent your own interaction grammar yet. You meet people where their expectations already sit, then differentiate on substance.",
-          "The win here came less from the model than from respecting two things the original design ignored: the mental model users brought with them, and the fact that good AI use is iterative and visible — not instant and silent.",
+        type: 'cta',
+        text: "Shipped an AI feature that users aren't adopting? That gap between \"it works\" and \"people use it\" is usually a design problem with a measurable fix.",
+        links: [
+          { label: 'See how a 21-day Sprint works', href: '/contact' },
+          { label: 'Send us the feature — we\'ll take a first look for free', href: '/contact' },
         ],
       },
     ],
